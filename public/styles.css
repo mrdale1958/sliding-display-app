@@ -1,4 +1,22 @@
 @charset "UTF-8";
+:root {
+	--lane_text:#ED1C24;
+	--lane_gradient_end:#FFE7C6;
+	--disease_catastrophe:#405E71;
+	--discovery_invention:#D89A28;
+	--drug_company_history: #763416;
+	--legislation:#64947D;
+	--education:#5D5759;
+	--health_science_history:#CD6828;
+	--world_event:#907783;
+	--disease_catastrophe_dark:#2C4453;
+	--discovery_invention_dark:#AA5B1D;
+	--drug_company_history_dark: #531E00;
+	--legislation_dark:#3C6050;
+	--education_dark:#403D3E;
+	--health_science_history_dark:#8F3A14;
+	--world_event_dark:#493B43;
+}
 html {
 	width: 100%;
 	height: 100%;
@@ -22,6 +40,7 @@ body {
 	position:absolute;
 	z-index: 6;
 }
+
 #lanes-block {
 	display: block;
 	min-width: 90000px;
@@ -48,17 +67,21 @@ body {
 	left: 0;
 	background-color: white;
 }
-.picture {
-	width:100%;
+.printed-graphic {
 	height: 100%;
-	left: 810px;
+	left: -1920px;
 	position: absolute;
-	z-index: 1;
-	opacity: 0.2;
+	z-index: 0;
+	/*opacity: 0.2;
+	top: 200px;*/
+}
+#printed-svg-object {
+	height:2160px;
 }
 .right-side {
 	position: absolute;
-	right: 0;
+	/* right: 0; needs to be relative to screen not whole thing */
+	left:4100px;
 }
 .solid-black-left {
 	width: 15%;
@@ -96,21 +119,12 @@ body {
 	height: 100%;
 	z-index: 10;
 }
-.event-block {
-	width:290px;
-	color:#fff;
-	position:static;
-	border-style: solid;;
-	border-width:1px;
-	padding: 2px;
-}
 .category-block {
-	width:296px;
 	position: absolute;
-	border-style: solid;
-	padding: 2px;;
-	border-color:rgb(7, 252, 101);
-	transform: translateY(-50%);
+/* 	border-style: solid;
+ */	padding: 2px;;
+/* 	border-color:rgb(7, 252, 101);
+ */	transform: translateY(-50%);
 }
 .century {
 	top: 0;
@@ -166,38 +180,66 @@ body {
 	border-color:blueviolet;
 	z-index: 1;
 }
+.event-div {
+
+}
+.event-block {
+	width:600px;
+	height: 400px;
+	background-color:#fff;
+	color: 0;
+	position:static;
+	border-width:10px;
+	border-style: solid;;
+	padding: 20px;
+	transition: height 2.4s linear;
+	transition: width 2.4s linear;
+	font-size: 24pt;
+}
 .event-dot {
-	border-width: 2px;
-	border-color: white;
-	border-radius: 2px;
+	border-width: 10px;
+	border-radius: 20px;
+	border-style: solid;;
 	width: 4px;
 	height: 4px;
-	color: white;
+	margin: 0 0 0 400px;
+	transition: height 0.4s linear;
 
 }
 .event-date {
-	border-width: 2px;
-	border-color: white;
+	border-width: 7px;
 	border-radius: 2px;
+	border-style: solid;;
+	margin: 0 0 0 400px;
+	background-color: black;
+	color:white;
+	transition: height 0.4s linear;
+	font-size: 16pt;
+	height: 60px;
+	width: 300px;
 	
-	color: white;
 }
 .event-label {
-	border-width: 2px;
-	border-color: white;
+	border-width: 10px;
 	border-radius: 2px;
-	color: white;
+	background-color: black;
+	margin: 0 0 0 400px;
+	border-style: solid;
+	color:white;
+	padding: 20px;
+	min-height: 200px;
+	font-size: 24pt;
+	transition: height 0.4s linear;
 }
 .event-year {
 	font-weight: normal;
-	font-size:smaller;
-	color: white;
-}
+/* 	font-size:smaller;
+ */}
 .event-location {
 	font-weight: normal;
 	float:right;
-	font-size:smaller;
-	font-style:italic;
+/* 	font-size:smaller;
+ */	font-style:italic;
 }
 .event-heading {
 	font-weight: bold;
@@ -218,81 +260,103 @@ body {
 	
 }
 .lane-label {
-	color: white;
+	color: var(--lane_text);
 	opacity: 1;
 	position: absolute;
 	padding: 3px;	
 	z-index: 30;
+	font-size: 30pt;
 }
 .lane {
-	height:30px;
+	height:12.5%;
 	position: absolute;
 	width: 100%;
 	z-index: 25;
+	margin-top: 7px;
 	
 }
 .lane.drug_company_history {
-	background-color: purple;
-	opacity: 0.15;
+	background-color: linear-gradient(to right, var(--lane_gradient_end), var(--drug_company_history),var(--drug_company_history_dark),var(--drug_company_history),var(--lane_gradient_end));
+	opacity: 0.75;
 }
 .lane.discovery_invention {
-	background-color:aqua;
-	opacity: 0.15;
+	background-color: linear-gradient(to right, var(--lane_gradient_end), var(--discovery_invention),var(--discovery_invention_dark),var(--discovery_invention),var(--lane_gradient_end));
+	opacity: 0.75;
 }
 .lane.health_science_history {
-	background-color:red;
-	opacity: 0.15;
+	background-color: linear-gradient(to right, var(--lane_gradient_end), var(--health_science_history),var(--health_science_history_dark),var(--health_science_history),var(--lane_gradient_end));
+	opacity: 0.75;
 }
 .lane.disease_catastrophe {
-	background-color:blue;
-	opacity: 0.15;
+	background-color: linear-gradient(to right, var(--lane_gradient_end), var(--disease_catastrophe),var(--disease_catastrophe_dark),var(--disease_catastrophe),var(--lane_gradient_end));
+	opacity: 0.75;
 }
 .lane.legislation {
-	background-color:green;
-	opacity: 0.15;
+	background-color: linear-gradient(to right, var(--lane_gradient_end), var(--legislation),var(--legislation_dark),var(--legislation),var(--lane_gradient_end));
+	opacity: 0.75;
 }
 .lane.education {
-	background-color:yellow;
-	opacity: 0.15;
+	background-color: linear-gradient(to right, var(--lane_gradient_end), var(--education),var(--education_dark),var(--education),var(--lane_gradient_end));
+	opacity: 0.75;
 }
 .lane.world_event {
-	background-color:orange;
-	opacity: 0.15;
+	background-color: linear-gradient(to right, var(--lane_gradient_end), var(--world_event),var(--world_event_dark),var(--world_event),var(--lane_gradient_end));
+	opacity: 0.75;
 }
 
-.drug_company_history {
+.drug_company_history_top {
 	top: 10%;
-	border-color: purple;
+}
+.discovery_invention_top {
+	top: 23%;
+
+}
+.health_science_history_top {
+	top: 49%;
+
+}
+.disease_catastrophe_top {
+	top: 36%;
+	
+}
+.legislation_top {
+	top: 62%;
+
+}
+.education_top {
+	top: 75%;
+
+}
+.world_event_top {
+	top: 88%;
+	
+}
+.drug_company_history {
+	border-color: var(--drug_company_history);
 	opacity: 1;
 }
 .discovery_invention {
-	top: 23%;
-	border-color:aqua;
+	border-color: var(--discovery_invention);
 	opacity: 1;
 }
 .health_science_history {
-	top: 49%;
-	border-color:red;
+	border-color: var(--health_science_history);
 	opacity: 1;
 }
 .disease_catastrophe {
-	top: 36%;
-	border-color:blue;
+	border-color: var(--disease_catastrophe);
 	opacity: 1;
 }
 .legislation {
-	top: 62%;
-	border-color:green;
+	border-color: var(--legislation);
 	opacity: 1;
 }
 .education {
-	top: 75%;
-	border-color:yellow;
+	border-color: var(--education);
 	opacity: 1;
 }
 .world_event {
-	top: 88%;
-	border-color:orange;
+	border-color: var(--world_event);
 	opacity: 1;
 }
 
@@ -324,1587 +388,7 @@ body {
 	clear: both;
 }
 
-.delayed-video {
-	display: block;
-}
-.body-text {
-	position: absolute;
-	top: 0;
-	left: 0;
-	text-align: center;
-	z-index: 3;
-	height: 100px;
-	margin: 5%;
-	transform: rotate(-5deg);
-	max-width: 1530px;
-	overflow: visible;
-	}
-.body-text a {
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-}
-.short {
-	margin: 20%;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -90px);
-}
-.middle {
-	margin: 15%;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12%;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
+
 .clrflt {
 	clear: both;
-}
-
-/* Accordion code */
-#accordion {
-   width: 100%;
-   margin: 0 auto;
-	height: 30px;
-	text-align: center;
-   padding: 0; 
-   position: fixed;
-   bottom: 0;
-   z-index:5;
-   opacity: .4;
-   /* background-color:rgba(7,52,156,0.80); purple bg */
-	background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-    content:"+";
-	font-size: 20px;
-}
-#accordion:hover {
-	height: 390px;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1em;
-	height: 100%;
-	max-width: 1280px;
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1em;
-	height: 100%;
-	max-width: 1280px;
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	height: 100%;
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-
-/* for mobile */
-@media only screen /*iphone 4 and 4s */
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-}
-
-/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 568px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-}
-
-/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2) { 
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-}
-
-/* ----------- iPhone 6+, 7+ and 8+ ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 414px) 
-  and (max-device-width: 736px) 
-  and (-webkit-min-device-pixel-ratio: 3) { 
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-}
-
-/* ----------- iPhone X ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3) { 
-	  body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-
-}
-
-@media screen /* galaxy S3 */
-  and (device-width: 360px) 
-  and (device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 2) {
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-}
-/* ----------- Galaxy S4, S5 and Note 3 ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-  and (device-width: 320px) 
-  and (device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 3) {
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-}
-/* ----------- Galaxy S6 ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-  and (device-width: 360px) 
-  and (device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 4) {
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-}
-/* ----------- Google Pixel ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-  and (device-width: 360px) 
-  and (device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 3) {
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-}
-/* ----------- Google Pixel XL ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-  and (device-width: 360px) 
-  and (device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 4) {
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-}
-/* ----------- HTC One ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-  and (device-width: 360px) 
-  and (device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 3) {
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
-}
-/* ----------- Windows Phone ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-  and (device-width: 480px) 
-  and (device-height: 800px) {
-body {
-		  width: 100vw;
-		  height: 100vh;
-	  }
-	  .wrap {
-		  width: 100vw;
-		  height: 100vh; 
-	  }
-	  .body-text {
-	text-align: center;
-	z-index: 3;
-	/*height: 100px;*/
-	margin: 36px 12px;
-	font-size: 2em;
-	transform: rotate(-5deg);
-	max-width: 85vw;
-	overflow: visible;
-	}
- #video-block {
-	text-align: center;
-	/*width: 120vw;
-	height: 120vh;
-	object-fit: cover;
-	 */
-}
-video {
-align: center;
-	/*
-width: 120vw;
-height: 120vh;
-object-fit: cover;
-	*/
-}
-#accordion {
-   width: 120vw;
-   margin: 0 auto;
-	height: 15vh;
-	text-align: center;
-   padding: 0; 
-   z-index:5;
-   opacity: .4;
-   background-color: #000;
-   font-family: Verdana, Geneva, sans-serif;
-   }
-ul {
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul::before {
-    text-align: center;
-	/*color: rgba(193,198,220,1.00);*/
-	color: rgba(253,225,23,1.00);
-    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	font-weight: bolder;
-	font-size: 65px;
-    content:"+";
-}
-#accordion:active {
-	height: 40vh;
-	overflow: scroll;
-	opacity: .85;
-   }
-#accordion p {
-	font-size: 1.5em;
-	/*height: 100vh;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-}
-#accordion li {
-	font-size: 1.5em;
-	/*height: 100%;*/
-	/*max-width: 100vmax;*/
-	margin: 1em auto;
-	color: rgba(232,232,221,1.00);
-	text-align: left;
-	padding: 0 1.5em;
-}
-#accordion li.logo {
-	text-align: center;
-	padding: 1em 0;
-}
-#accordion a {
-	/*height: 100vh;*/
-	font-weight:bold;
-	font-family:Verdana, Geneva, sans-serif;
-	color: rgba(228,228,197,1.00);
-}
-  .short {
-	margin: 10vmin;
-	padding: 4px;
-	font-size: 7.5vw;
-	width: calc(100% -70px);
-}
-.middle {
-	margin: 15vmin;
-	padding: 4px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 4.5vw;
-	width: calc(100% - 90px);
-}
-.long {
-	margin: 12vmin;
-	padding: 6px;
-	font-family: 'Playfair Display SC', serif;
-	text-decoration: none;
-	color: rgba(232,232,221,1.00);
-	background-color: rgba(7,52,156,0.40);
-	font-size: 3vw;
-	width: calc(100% - 40px);
-}
 }

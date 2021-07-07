@@ -1,7 +1,7 @@
 import { readCSVfile }  from './csvreader.js'
 
 let incomingURL = window.location.href;
-console.log(incomingURL);
+//console.log(incomingURL);
 
 let travelDistance = 157.4; // inches ... 6.674 screen widtha
 let clickDensity = 320; //clicks per inch
@@ -11,7 +11,7 @@ let layout = 'nonlinear';// square, log, superlog, linear
 let startYear = 1590;
 let lastYear = startYear;
 let endYear = 2021;
-let ticksPerYear = 320;
+let ticksPerYear = 154;
 let scrubbing = false;
 let offset = [0,0];
 let mousePosition;
@@ -22,9 +22,9 @@ let timelineDivs = {};
 let yearTrigger = 0;
 let labelTrigger = 0;
 let contentTrigger = 0;
-let yearLaneWidth = window.innerWidth/10;
-let leftEdge = yearLaneWidth;
-let rightEdge = window.innerWidth - yearLaneWidth;
+let yearLaneWidth = window.innerWidth/20;
+let leftEdge = 0; //yearLaneWidth;
+let rightEdge = window.innerWidth - yearLaneWidth - 100;
 
 
 //fetch('videofiles.txt')
@@ -76,7 +76,7 @@ function adjustDivPresentations(location) {
 			break;
 		}
 		if (yearDiv.classList === undefined) {
-			console.log(yearDivs, yearDiv);
+			//console.log(yearDivs, yearDiv);
 			break;
 		}
 		let eventDivs = yearDiv.getElementsByClassName("event-div");
@@ -88,8 +88,8 @@ function adjustDivPresentations(location) {
 			//console.log(yearDiv, yearDiv.style.left);
 			let yearDivLocOnScreen = parseInt(yearDiv.style.left.slice(0,-2)) + location;
 			if (false && (yearDivLocOnScreen > 0) &&  (yearDivLocOnScreen < rightEdge) ){
-				console.log(yearDiv.id, yearDivLocOnScreen,location,location + yearTrigger,location + labelTrigger,location + contentTrigger,
-				rightEdge - contentTrigger, rightEdge - labelTrigger, rightEdge - yearTrigger, rightEdge);
+				//console.log(yearDiv.id, yearDivLocOnScreen,location,location + yearTrigger,location + labelTrigger,location + contentTrigger,
+				//rightEdge - contentTrigger, rightEdge - labelTrigger, rightEdge - yearTrigger, rightEdge);
 			}
 			if ( yearDivLocOnScreen < leftEdge) {
 				dotDiv.style.display = "none";
@@ -264,7 +264,7 @@ function categoryToClassname(category) {
 
 function buildDotDiv(eventData) {
     let newDiv = document.createElement("div");
-    //newDiv.classList.add(categoryToClassname(eventData['CATEGORY']));
+    newDiv.classList.add(categoryToClassname(eventData['CATEGORY']));
     newDiv.classList.add('event-dot');
     
     return newDiv;
@@ -272,7 +272,7 @@ function buildDotDiv(eventData) {
 
 function buildDateDiv(eventData) {
     let newDiv = document.createElement("div");
-    //newDiv.classList.add(categoryToClassname(eventData['CATEGORY']));
+    newDiv.classList.add(categoryToClassname(eventData['CATEGORY']));
     newDiv.classList.add('event-date');
     newDiv.style.left = yearToPosition(eventData['YEAR']);
     let dateDiv = document.createElement("div");
@@ -284,7 +284,7 @@ function buildDateDiv(eventData) {
 
 function buildLabelDiv(eventData) {
     let newDiv = document.createElement("div");
-    //newDiv.classList.add(categoryToClassname(eventData['CATEGORY']));
+    newDiv.classList.add(categoryToClassname(eventData['CATEGORY']));
     newDiv.classList.add('event-label');
     newDiv.style.left = yearToPosition(eventData['YEAR']);
     let dateDiv = document.createElement("div");
@@ -300,7 +300,7 @@ function buildLabelDiv(eventData) {
 
 function buildContentDiv(eventData) {
     let newDiv = document.createElement("div");
-    //newDiv.classList.add(categoryToClassname(eventData['CATEGORY']));
+    newDiv.classList.add(categoryToClassname(eventData['CATEGORY']));
     newDiv.classList.add('event-block');
     newDiv.style.left = yearToPosition(eventData['YEAR']);
     let dateDiv = document.createElement("div");
@@ -369,7 +369,7 @@ function buildDivs(database) {
 	        let slider = document.getElementById("slider");
 	        slider.appendChild(scrollTick);
 			//console.log(yearDiv.id, eventData.EXTENDED_YEAR, yearCount, parseInt(newPosition.slice(0,-2)), parseInt(newPosition.slice(0,-2))/320+11.8);
-			console.log('\t'+ eventData.EXTENDED_YEAR+ '\t'+ parseInt(newPosition.slice(0,-2))+ '\t'+ (parseInt(newPosition.slice(0,-2))/320+11.8) + '\t');
+			//console.log('\t'+ eventData.EXTENDED_YEAR+ '\t'+ parseInt(newPosition.slice(0,-2))+ '\t'+ (parseInt(newPosition.slice(0,-2))/320+11.8) + '\t');
 			yearCount += 1;
 		} 
 		let categoryDivs = yearDiv.getElementsByClassName(categoryToClassname(eventData.CATEGORY));
@@ -377,7 +377,7 @@ function buildDivs(database) {
 		if (categoryDivs.length != 1) {
 			categoryDiv = document.createElement("div");
 			categoryDiv.classList.add('category-block');
-			categoryDiv.classList.add(categoryToClassname(eventData.CATEGORY));
+			categoryDiv.classList.add(categoryToClassname(eventData.CATEGORY) + "_top");
 			yearDiv.appendChild(categoryDiv);
 			
 		} else {
@@ -438,7 +438,7 @@ function runExhibit(database) {
 		}
 	}, true);
 	sortEventsByYear(database);
-	ticksPerYear = availableClicks / (yearCount-1);
+	//ticksPerYear = availableClicks / (yearCount-1);
 	yearCount = 0;
 	let milestoneCount = 7;
 	yearTrigger = 1 * document.body.clientWidth/milestoneCount;
