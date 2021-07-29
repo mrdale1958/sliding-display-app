@@ -13,10 +13,14 @@ class SlidingDisplay extends React.Component {
   // }
 
   handleMouseCallback = (positionData) =>{
-    this.setState({sliderPosition: positionData})
+    this.setState((state, props) => {
+      return {sliderPosition: positionData};
+    });
   }
   handlePhidgetCallback = (positionData) =>{
-    this.setState({sliderPosition: positionData})
+    this.setState((state, props) => {
+      return {sliderPosition: positionData};
+    });
   }
 
   render(){
@@ -24,9 +28,9 @@ class SlidingDisplay extends React.Component {
     return(
         
       <div className="SlidingDisplay">
-        <MovingBackground sliderPosition = {position} />
+        <MovingBackground sliderPosition = {this.state.sliderPosition} />
         <Lanes />
-        <PharmacyWall sliderPosition = {position} />
+        <PharmacyWall sliderPosition = {this.state.sliderPosition} db={this.props.db}/>
         <MouseSlider id='mouseSlider' positionCallback = {this.handleMouseCallback} />
         <PhidgetSlider id='phidgetSlider' positionCallback = {this.handlePhidgetCallback}/>
       </div>
