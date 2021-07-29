@@ -1,0 +1,413 @@
+@charset "UTF-8";
+:root {
+	--lane_text:#ED1C24;
+	--lane_gradient_end:#FFE7C6;
+	--disease_catastrophe:#405E71;
+	--discovery_invention:#D89A28;
+	--drug_company_history: #763416;
+	--legislation:#64947D;
+	--education:#5D5759;
+	--health_science_history:#CD6828;
+	--world_event:#907783;
+	--disease_catastrophe_dark:#2C4453;
+	--discovery_invention_dark:#AA5B1D;
+	--drug_company_history_dark: #531E00;
+	--legislation_dark:#3C6050;
+	--education_dark:#403D3E;
+	--health_science_history_dark:#8F3A14;
+	--world_event_dark:#493B43;
+	--lane-height: 13.8%;
+}
+html {
+	width: 100%;
+	height: 100%;
+}
+* { 
+	margin: 0;
+	padding: 0;
+}
+body {
+	/* width: 1920px;
+	height: 1080px; */
+	font-family: myriad-pro;
+	font-style: normal;
+	font-weight: 300;
+}
+#root {
+	display: none;
+}
+#timeline-block {
+	display: block;
+	min-width: 90000px;
+	height: 100%;
+	overflow:visible;
+	position:absolute;
+	z-index: 6;
+}
+
+#lanes-block {
+	display: block;
+	width: 100vw;
+	height: 90%;
+	overflow:visible;
+	position:absolute;
+	z-index: 5;
+}
+.slider {
+	position:absolute;
+	display: block;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	background-color: gray;
+	z-index: 100;
+}
+#slider-handle {
+	position:sticky;
+	display: block;
+	margin: 5px;
+	height: 30px;
+	width: 50px;
+	left: 0;
+	background-color: white;
+}
+.printed-graphic {
+	height: 100%;
+	left: -920px;
+	top: -11.4%;
+	position: absolute;
+	z-index: 0;
+	opacity: 0.4;
+	/*top: 200px;*/
+}
+#printed-svg-object {
+	height:1980px;
+}
+.right-side {
+	position: absolute;
+	/* right: 0; needs to be relative to screen not whole thing */
+	right:0;
+}
+.solid-black-left {
+	width: 15%;
+	background-color: black;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	z-index: 10;
+}
+.solid-black-right {
+	width: 15%;
+	background-color:  black;
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	z-index: 10;
+}
+.gradient-black-left {
+	width: 35%;
+	background-image: linear-gradient(to right, black, #00000000);
+	position: absolute;
+	left: 15%;
+	top: 0;
+	height: 100%;
+	z-index: 10;
+}
+.gradient-black-right {
+	width: 35%;
+	background-image: linear-gradient(to left, black, #00000000);
+	position: absolute;
+	right: 15%;
+	top: 0;
+	height: 100%;
+	z-index: 10;
+}
+.category-block {
+	position: absolute;
+/* 	border-style: solid;
+ */	padding: 2px;;
+/* 	border-color:rgb(7, 252, 101);
+ */	transform: translateY(-50%);
+}
+.century {
+	top: 0;
+	position: absolute;
+	width: 1px;
+	background-color: white;
+	height: 100%;
+}
+.year {
+	display: block;
+	width: fit-content;
+	position: absolute;
+	top: 0px;
+	height: 100%;
+}
+.year-dot {
+	display: block;
+	width:10px;
+	height: 10px;
+	position:absolute;
+	padding: 2px;
+	border-style: none;
+	border-color:blueviolet;
+	z-index: 1;
+}
+.year-year {
+	display: block;
+	width:50px;
+	height: 100%;
+	position:absolute;
+	padding: 2px;
+	border-style: none;
+	border-color:blueviolet;
+	z-index: 1;
+}
+.year-label {
+	display: block;
+	width:100px;
+	height: 100%;
+	position:absolute;
+	padding: 2px;
+	border-style: none;
+	border-color:blueviolet;
+	z-index: 1;
+}
+.year-block {
+	display: block;
+	width:700px;
+	height: 100%;
+	position:absolute;
+	padding: 2px;
+	border-style: none;
+	border-color:blueviolet;
+	z-index: 1;
+}
+.event-div {
+
+}
+.event-block {
+	width:600px;
+	height: 400px;
+	background-color:#fff;
+	color: 0;
+	position:static;
+	border-width:10px;
+	border-style: solid;;
+	padding: 20px;
+	transition: height 2.4s linear;
+	transition: width 2.4s linear;
+	font-size: 24pt;
+}
+.event-dot {
+	border-width: 10px;
+	border-radius: 20px;
+	border-style: solid;;
+	width: 4px;
+	height: 4px;
+	margin: 0 0 0 400px;
+	transition: height 0.4s linear;
+
+}
+.event-date {
+	border-width: 7px;
+	border-radius: 2px;
+	border-style: solid;;
+	margin: 0 0 0 400px;
+	background-color: black;
+	color:white;
+	transition: height 0.4s linear;
+	font-size: 16pt;
+	height: 60px;
+	width: 300px;
+	
+}
+.event-label {
+	border-width: 10px;
+	border-radius: 2px;
+	background-color: black;
+	margin: 0 0 0 400px;
+	border-style: solid;
+	color:white;
+	padding: 20px;
+	min-height: 200px;
+	font-size: 24pt;
+	transition: height 0.4s linear;
+}
+.event-year {
+	font-weight: normal;
+/* 	font-size:smaller;
+ */}
+.event-location {
+	font-weight: normal;
+	float:right;
+/* 	font-size:smaller;
+ */	font-style:italic;
+}
+.event-heading {
+	font-weight: bold;
+	text-align: center;
+}
+.event-body {
+	padding: 4px;
+	font-weight: normal;
+}
+.event-scroll-tick {
+	width: 0px;
+	height: 30px;
+	position: absolute;
+	border-style: solid;
+	border-color:blueviolet;
+	border-width:1px;
+	top: 5px;
+	
+}
+.lane-label {
+	color: var(--lane_text);
+	opacity: 1;
+	position: absolute;
+	padding: 2% 0 0px 3px;	
+	z-index: 30;
+	font-size: 48pt;
+	font-family: myriad-pro;
+	font-style: normal;
+	font-weight: bold;
+}
+.lane {
+	height:var(--lane-height);
+	position: absolute;
+	width: 100%;
+	z-index: 25;
+	margin-top: 0px;
+	
+}
+.lane.drug_company_history {
+	background: linear-gradient(to right, var(--lane_gradient_end), var(--drug_company_history),var(--drug_company_history_dark),var(--drug_company_history),var(--lane_gradient_end));
+	opacity: 0.75;
+}
+.lane.discovery_invention {
+	background: linear-gradient(to right, var(--lane_gradient_end), var(--discovery_invention),var(--discovery_invention_dark),var(--discovery_invention),var(--lane_gradient_end));
+	opacity: 0.75;
+}
+.lane.health_science_history {
+	background: linear-gradient(to right, var(--lane_gradient_end), var(--health_science_history),var(--health_science_history_dark),var(--health_science_history),var(--lane_gradient_end));
+	opacity: 0.75;
+}
+.lane.disease_catastrophe {
+	background: linear-gradient(to right, var(--lane_gradient_end), var(--disease_catastrophe),var(--disease_catastrophe_dark),var(--disease_catastrophe),var(--lane_gradient_end));
+	opacity: 0.75;
+}
+.lane.legislation {
+	background: linear-gradient(to right, var(--lane_gradient_end), var(--legislation),var(--legislation_dark),var(--legislation),var(--lane_gradient_end));
+	opacity: 0.75;
+}
+.lane.education {
+	background: linear-gradient(to right, var(--lane_gradient_end), var(--education),var(--education_dark),var(--education),var(--lane_gradient_end));
+	opacity: 0.75;
+}
+.lane.world_event {
+	background: linear-gradient(to right, var(--lane_gradient_end), var(--world_event),var(--world_event_dark),var(--world_event),var(--lane_gradient_end));
+	opacity: 0.75;
+}
+.century_marks {
+	background: gray;
+	opacity: 0.75;
+}
+
+.disease_catastrophe_top {
+	top: calc(var(--lane-height) * 0);
+	
+}
+.discovery_invention_top {
+	top: calc(var(--lane-height)* 1);
+
+}
+.drug_company_history_top {
+	top: calc(var(--lane-height) * 2);
+
+}
+
+.legislation_top {
+	top: calc(var(--lane-height) * 3);
+	height:calc(var(--lane-height)*1.066);
+
+}
+.education_top {
+	top: calc(var(--lane-height) * 4.065);
+
+}
+.health_science_history_top {
+	top: calc(var(--lane-height) * 5.1195);
+
+}
+.world_event_top {
+	top: calc(var(--lane-height) * 6.12);
+	
+}
+.century_marks_top {
+	top: calc(var(--lane-height) * 7);
+}
+
+.drug_company_history {
+	border-color: var(--drug_company_history);
+	opacity: 1;
+}
+.discovery_invention {
+	border-color: var(--discovery_invention);
+	opacity: 1;
+}
+.health_science_history {
+	border-color: var(--health_science_history);
+	opacity: 1;
+}
+.disease_catastrophe {
+	border-color: var(--disease_catastrophe);
+	opacity: 1;
+}
+.legislation {
+	border-color: var(--legislation);
+	opacity: 1;
+}
+.education {
+	border-color: var(--education);
+	opacity: 1;
+}
+.world_event {
+	border-color: var(--world_event);
+	opacity: 1;
+}
+
+#video-block {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+video {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+body {
+	margin: 0; /*seems i shouldn't need this since i used the universal selector but trying to eliminate any space at all on the page and am getting a weird one beneath each div */
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	overflow: hidden;
+}
+.wrap {
+	width: 100%;
+	margin: 0 auto;
+}
+.clear {
+	clear: both;
+}
+
+
+.clrflt {
+	clear: both;
+}
