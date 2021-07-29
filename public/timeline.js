@@ -1,4 +1,4 @@
-import { readCSVfile }  from './csvreader.js'
+import { readCSVfile }  from '../src/csvreader.js'
 
 let incomingURL = window.location.href;
 //console.log(incomingURL);
