@@ -4,11 +4,19 @@ import MovingBackground from './MovingBackground.js';
 import Lanes from './Lanes.js';
 import PharmacyWall from './PharmacyWall.js';
 import MouseSlider from './MouseSlider.js';
-import PhidgetSlider from './PhidgetSlider.js';
+//import PhidgetSlider from './PhidgetSlider.js';
+import BackgroundGraphic from './Timeline 15 ART 1900fix.svg';
 
 class SlidingDisplay extends React.Component {
   
-  //state = {
+  constructor() {
+    super();
+    this.state = {
+        sliderPosition: 0
+    };
+    //this.handleClick = this.handleClick.bind(this);
+}
+//state = {
   //  sliderPosition: "",
   // }
 
@@ -24,16 +32,15 @@ class SlidingDisplay extends React.Component {
   }
 
   render(){
-    const {position} = 0; //this.state.sliderPosition;
     return(
         
       <div className="SlidingDisplay">
-        <MovingBackground sliderPosition = {this.state.sliderPosition} />
+        <MovingBackground image = {BackgroundGraphic} alttext='John Mattos background graphic' sliderPosition = {this.state.sliderPosition}  />
         <Lanes />
         <PharmacyWall sliderPosition = {this.state.sliderPosition} db={this.props.db}/>
         <MouseSlider id='mouseSlider' positionCallback = {this.handleMouseCallback} />
-        <PhidgetSlider id='phidgetSlider' positionCallback = {this.handlePhidgetCallback}/>
-      </div>
+{/*         <PhidgetSlider id='phidgetSlider' positionCallback = {this.handlePhidgetCallback}/>
+ */}      </div>
     );
   }
 }

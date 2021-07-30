@@ -3,47 +3,70 @@ import React from 'react';
 class Template extends React.Component {
     constructor() {
         super();
-        this.state = {color: "red"};
+        this.state = {color: "red",
+            scrubbing: false,
+            offset: 0,
+            mousePosition: 0
+        };
         this.handleClick = this.handleClick.bind(this);
+        this.dragDisplay = this.dragDisplay.bind(this);
     }
   
     componentDidMount() {
         let sliderHandle = document.getElementById("slider-handle");
         //slider.addEventListener("click", moveDisplay);
-        window.addEventListener("drag", dragDisplay);
-        window.addEventListener("dragstart", dragDisplay);
-        window.addEventListener("dragend", dragDisplay);
-        window.addEventListener('mousedown', startDrag);
-        window.addEventListener('mouseup', endDrag);
-        document.addEventListener('mousemove', dragDisplay);
+        if (sliderHandle) {
+            sliderHandle.addEventListener("drag", this.dragDisplay);
+            sliderHandle.addEventListener("dragstart", this.dragDisplay);
+            sliderHandle.addEventListener("dragend", this.dragDisplay);
+            sliderHandle.addEventListener('mousedown', this.startDrag);
+            sliderHandle.addEventListener('mouseup', this.endDrag);
+            sliderHandle.addEventListener('mousemove', this.dragDisplay);
+        }
     }
 
     startDrag(e){
-        scrubbing = true;
-        offset = [
+        let sliderHandle = document.getElementById("slider-handle");
+        if (sliderHandle) {
+            this.setState(prevState => ({
+            scrubbing:  true
+        }));
+
+        this.setState(prevState => ({
+            offset : [
             sliderHandle.offsetLeft - e.clientX,
             sliderHandle.offsetTop - e.clientY
-        ];
-    }   
-    
+            ]
+        }));
+    }
+    }       
     endDrag(e){
-        scrubbing = false;
-        offset = [
+        let sliderHandle = document.getElementById("slider-handle");
+        if (sliderHandle) {
+            this.setState(prevState => ({
+            scrubbing:  false
+        }));
+        this.setState(prevState => ({
+            offset : [
             sliderHandle.offsetLeft - e.clientX,
             sliderHandle.offsetTop - e.clientY
-        ];
+            ]
+        }));
+    }
     }   
     
     componentWillUnmount() {
         let sliderHandle = document.getElementById("slider-handle");
-        //slider.addEventListener("click", moveDisplay);
-        window.removeEventListener("drag", dragDisplay);
-        window.removeEventListener("dragstart", dragDisplay);
-        window.removeEventListener("dragend", dragDisplay);
-        window.removeEventListener('mousedown', startDrag);  
-        window.removeEventListener('mouseup', endDrag);
-        window.removeEventListener('mousemove', dragDisplay);
+        if (sliderHandle) {
+            //slider.addEventListener("click", moveDisplay);
+        sliderHandle.removeEventListener("drag", this.dragDisplay);
+        sliderHandle.removeEventListener("dragstart", this.dragDisplay);
+        sliderHandle.removeEventListener("dragend", this.dragDisplay);
+        sliderHandle.removeEventListener('mousedown', this.startDrag);  
+        sliderHandle.removeEventListener('mouseup', this.endDrag);
+        sliderHandle.removeEventListener('mousemove', this.dragDisplay);
     }
+}
 
     handleClick() {
       this.setState(prevState => ({
@@ -54,27 +77,34 @@ class Template extends React.Component {
 	
 	
 	mouseMoveDisplay(event) {
+        console.log('mouse', event.type, event);
+        let sliderHandle = document.getElementById("slider-handle");
 		event.preventDefault();
-		if (scrubbing) {
-			mousePosition = {
+        if (sliderHandle) {
+            if (this.state.scrubbing) {
+			this.setState(prevState => ({
+                mousePosition: {
 	
-				x : event.clientX,
-				y : event.clientY
-	
-			};
-			let newX = (mousePosition.x + offset[0]);
-			slideDisplay(newX);
+                    x : event.clientX,
+                    y : event.clientY
+                }
+			}));
+			let newX = (this.state.mousePosition.x + this.state.offset[0]);
+			this.props.slideDisplay(newX);
 			sliderHandle.style.left =  newX + 'px';
 			//div.style.top  = (mousePosition.y + offset[1]) + 'px';
 		}
+    }
 	} 
     
     dragDisplay(event) {
-        //console.log('drag', event.type, event);
+        console.log('drag', event.type, event);
         if (event.type === 'mousedown') {
             console.log (event.type);
-            this.setState({scrubbing: true})
-        } else if (event.type === 'mousemove' && scrubbing == true) {
+            this.setState(prevState => ({
+                scrubbing:  true
+            }));
+        } else if (event.type === 'mousemove' && this.state.scrubbing === true) {
             console.log (event.movementX);
             const rect = event.target.getBoundingClientRect();
                 
@@ -85,15 +115,20 @@ class Template extends React.Component {
             
         } else if (event.type === 'mouseup') {
             console.log (event.type);
-            scrubbing = false;
-        } 
+            this.setState(prevState => ({
+                scrubbing:  false
+            }));
+            } 
     }    
     
     render() {
         return (
             <div className="slider" >
-                <div id={this.props.id}> &nbsp; </div>
-            </div>
+                <div id={this.props.id}> 
+                    <div id="slider-handle"> &nbsp; </div>
+                 </div>
+                
+           </div>
 
         );
   }

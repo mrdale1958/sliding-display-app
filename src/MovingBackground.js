@@ -1,5 +1,4 @@
 import React from 'react';
-import BackgroundGraphic from './Timeline 11 ARTscreen versiondm.svg';
 
 class Template extends React.Component {
     constructor() {
@@ -12,7 +11,7 @@ class Template extends React.Component {
           {/* <object id="printed-svg-object" data="Timeline 11 ARTscreen versiondm.svg" type="image/svg+xml"> 
             <img src="background.jpg" />
           </object>	 */}
-          <img src={BackgroundGraphic} 	id="printed-svg-object" alt='John Mattos background graphic'/>	
+          <img src={this.props.image} 	id="printed-svg-object" alt={this.props.alttext}/>	
         </div>
         );
   }

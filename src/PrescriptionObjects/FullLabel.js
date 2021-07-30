@@ -3,7 +3,7 @@ import React from 'react';
 class FullLabel extends React.Component {
     constructor() {
         super();
-        this.state = {color: "red", timePosition: this.props.timePosition};
+        this.state = {color: "red", timePosition: 0};
       }
     render() {
         return (

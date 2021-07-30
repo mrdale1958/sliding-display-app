@@ -1,10 +1,10 @@
-let fileReader = new FileReader();
+//let fileReader = new FileReader();
 
 export function readCSVfile(csvtext) {
 	return csvJSON(csvtext);
 }
 
-function getFile(inputFile) {
+/* function getFile(inputFile) {
 	let file = inputFile.files[0];
 	fileReader.readAsText(file);
 }
@@ -13,7 +13,7 @@ function readFile(evt) {
 	let parsed = csvJSON(evt.target.result);
 	return parsed;
 }
-
+ */
 //var csv is the CSV file with headers
 function csvJSON(csv){
 
@@ -27,7 +27,7 @@ function csvJSON(csv){
 
 	  var obj = {};
 	  var currentline=lines[i].split("	");
-	  if (headers.length == currentline.length) 
+	  if (headers.length === currentline.length) 
 	  {
 	  	for(var j=0;j<headers.length;j++){
   		  try {
