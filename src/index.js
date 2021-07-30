@@ -3,33 +3,37 @@ import ReactDOM from 'react-dom';
 import SlidingDisplay from './SlidingDisplay';
 import reportWebVitals from './reportWebVitals';
 import { readCSVfile }  from './csvreader.js'
+import BackgroundGraphic from './Timeline 11 ARTscreen versiondm.svg';
 
 
-let incomingURL = window.location.href;
-//console.log(incomingURL);
+let config = {
+	incomingURL:window.location.href,
+	travelDistance : 157.4, // inches ... 6.674 screen widtha
+	clickDensity : 320, //clicks per inch
+	availableClicks : 0,  // 50373
+	timelineData : {},
+	layout : 'nonlinear',// square, log, superlog, linear
+	startYear : 1590,
+	lastYear : 2021,
+	endYear : 2021,
+	ticksPerYear : 154,
 
-let travelDistance = 157.4; // inches ... 6.674 screen widtha
-let clickDensity = 320; //clicks per inch
-let availableClicks = clickDensity * travelDistance;  // 50373
-let timelineData = {};
-let layout = 'nonlinear';// square, log, superlog, linear
-let startYear = 1590;
-let lastYear = startYear;
-let endYear = 2021;
-let ticksPerYear = 154;
-let scrubbing = false;
-let offset = [0,0];
-let mousePosition;
-let sortedByYear = {};
-let yearCount = 0;
-let maxClicks = (endYear - startYear) * ticksPerYear;
-let timelineDivs = {};
-let yearTrigger = 0;
-let labelTrigger = 0;
-let contentTrigger = 0;
-let yearLaneWidth = window.innerWidth/20;
-let leftEdge = 0; //yearLaneWidth;
-let rightEdge = window.innerWidth - yearLaneWidth - 100;
+	sortedByYear : {},
+	yearCount : 0,
+	maxClicks : 0,
+	timelineDivs : {},
+	yearTrigger : 0,
+	labelTrigger : 0,
+	contentTrigger :0,
+	yearLaneWidth : window.innerWidth/20,
+	leftEdge : 0, 
+	rightEdge : 0, 
+	backgroundGraphic: BackgroundGraphic;
+};
+config.lastYear = config.startYear;
+config.availableClicks = config.clickDensity * config.travelDistance; // 50373
+config.maxClicks = (config.endYear - config.startYear) * config.ticksPerYear;
+config.rightEdge = window.innerWidth - config.yearLaneWidth - 100;
 
 
 fetch('Pharmacy History noquotes.tsv')
@@ -40,7 +44,7 @@ fetch('Pharmacy History noquotes.tsv')
 	})
 	.then((mydata) => {
 		console.log("raw timeline: " + mydata);
-		timelineData = readCSVfile(mydata);
+		let timelineData = readCSVfile(mydata);
 		console.log("timelineData: " + timelineData);
 		runExhibit(timelineData);
 
@@ -50,7 +54,7 @@ fetch('Pharmacy History noquotes.tsv')
 function runExhibit(timelineData) {
   ReactDOM.render(
     <React.StrictMode>
-      <SlidingDisplay db={timelineData}/>
+      <SlidingDisplay db={timelineData} configData={config} />
     </React.StrictMode>,
     document.getElementById('timeline-block')
   );
