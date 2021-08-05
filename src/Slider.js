@@ -4,13 +4,26 @@ import MouseSlider from './MouseSlider.js';
 import PhidgetSlider from './PhidgetSlider.js';
 
 
-handleMouseCallback = (positionData) =>{
+class Slider extends React.Component {
+    constructor() {
+        super();
+        this.state = {color: "red",
+            scrubbing: false,
+            offset: 0,
+            mousePosition: 0
+        };
+        this.handleMouseCallback = this.handleMouseCallback.bind(this);
+        this.handlePhidgetCallback = this.handlePhidgetCallback.bind(this);
+        this.slideDisplay = this.slideDisplay.bind(this);
+        this.endDrag = this.dragDisplay.bind(this);
+    }
+  handleMouseCallback = (positionData) =>{
     this.setState({sliderPosition: positionData})
   }
   handlePhidgetCallback = (positionData) =>{
     this.setState({sliderPosition: positionData})
   }
-  function slideDisplay(location) {
+  slideDisplay(location) {
 	let slider = document.getElementById("slider");
 	let absoluteYear = Math.max(-window.innerWidth/2, Math.min(maxClicks, 
 		maxClicks - 
@@ -28,14 +41,14 @@ handleMouseCallback = (positionData) =>{
 	timelineDiv.style.left = - absoluteYear + "px";
 	adjustDivPresentations(- absoluteYear);
 }
-function slideDisplayAbsolute(location) {
+ slideDisplayAbsolute(location) {
 	let timelineDiv = document.getElementById("timeline-block");
 	timelineDiv.style.left = location + "px";
 	adjustDivPresentations(location);
 
 }
 
-function fixScrollTicks() {
+ fixScrollTicks() {
 	let ticks = document.getElementsByClassName('event-scroll-tick');
 	yearCount = 0;
 	for (var tick=0; tick< ticks.length; tick ++) {
@@ -46,7 +59,7 @@ function fixScrollTicks() {
 	//console.log("yearcount = " + yearCount);
 
 }
-function dragDisplay(event) {
+ dragDisplay(event) {
 	//console.log('drag', event.type, event);
 	if (event.type === 'mousedown') {
 		console.log (event.type);
@@ -69,7 +82,7 @@ function dragDisplay(event) {
   render() {
       return(
           <div>
-            <MouseSlider id='mouseSlider' positionCallback = {this.handleMouseCallback} slideDisplay = {slideDisplay}/>
+            <MouseSlider id='mouseSlider' positionCallback = {this.handleMouseCallback} slideDisplay = {this.slideDisplay}/>
             <PhidgetSlider id='phidgetSlider' positionCallback = {this.handlePhidgetCallback} />
         </div>
       )

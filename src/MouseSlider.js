@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Template extends React.Component {
+class MouseSlider extends React.Component {
     constructor() {
         super();
         this.state = {color: "red",
@@ -10,6 +10,8 @@ class Template extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this);
         this.dragDisplay = this.dragDisplay.bind(this);
+        this.startDrag = this.dragDisplay.bind(this);
+        this.endDrag = this.dragDisplay.bind(this);
     }
   
     componentDidMount() {
@@ -112,6 +114,7 @@ class Template extends React.Component {
             currentX += event.movementX;
             let newX = Math.max(0, Math.min(90000, currentX));
             event.target.style.left = newX;
+            this.props.positionCallback()
             
         } else if (event.type === 'mouseup') {
             console.log (event.type);
@@ -134,4 +137,4 @@ class Template extends React.Component {
   }
 }
 
-export default Template;
+export default MouseSlider;

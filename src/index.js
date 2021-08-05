@@ -28,7 +28,7 @@ let config = {
 	yearLaneWidth : window.innerWidth/20,
 	leftEdge : 0, 
 	rightEdge : 0, 
-	backgroundGraphic: BackgroundGraphic;
+	backgroundGraphic: BackgroundGraphic,
 };
 config.lastYear = config.startYear;
 config.availableClicks = config.clickDensity * config.travelDistance; // 50373
@@ -43,9 +43,9 @@ fetch('Pharmacy History noquotes.tsv')
 		return response.text();
 	})
 	.then((mydata) => {
-		console.log("raw timeline: " + mydata);
+		//console.log("raw timeline: " + mydata);
 		let timelineData = readCSVfile(mydata);
-		console.log("timelineData: " + timelineData);
+		//console.log("timelineData: " + timelineData);
 		runExhibit(timelineData);
 
 	});

@@ -3,7 +3,7 @@ import './SlidingDisplay.css';
 import MovingBackground from './MovingBackground.js';
 import Lanes from './Lanes.js';
 import PharmacyWall from './PharmacyWall.js';
-import Slider from ./Slider.js';
+import Slider from './Slider.js';
 import BackgroundGraphic from './Timeline 15 ART1900fix.svg';
 
 class SlidingDisplay extends React.Component {
