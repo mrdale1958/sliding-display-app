@@ -1,6 +1,7 @@
 import React from 'react';
 import Prescription from './PrescriptionObjects/Prescription.js';
 
+
 class PharmacyWall extends React.Component {
     constructor() {
       super();
