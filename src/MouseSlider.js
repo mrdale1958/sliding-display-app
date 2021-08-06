@@ -100,23 +100,23 @@ class MouseSlider extends React.Component {
 	} 
     
     dragDisplay(event) {
-        console.log('drag', event.type, event);
+        console.log('drag', event.type, this.state.scrubbing);
         if (event.type === 'mousedown') {
             console.log (event.type);
             this.setState(prevState => ({
                 scrubbing:  true
             }));
         } else if (event.type === 'mousemove' && this.state.scrubbing === true) {
-            console.log (event.movementX);
             const rect = event.target.getBoundingClientRect();
                 
             let currentX = rect.left;
             currentX += event.movementX;
             let newX = Math.max(0, Math.min(90000, currentX));
-            event.target.style.left = newX;
-            this.props.positionCallback()
+            event.target.style.left = String(newX) +'px';
+            console.log ('drag', event.movementX,event.target.style.left);
+            this.props.positionCallback(newX)
             
-        } else if (event.type === 'mouseup') {
+        } else if ((event.type === 'mouseup') || (event.type === 'mouseout')) {
             console.log (event.type);
             this.setState(prevState => ({
                 scrubbing:  false

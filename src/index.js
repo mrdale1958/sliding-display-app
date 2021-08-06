@@ -22,12 +22,12 @@ let config = {
 	yearCount : 0,
 	maxClicks : 0,
 	timelineDivs : {},
-	yearTrigger : 0,
-	labelTrigger : 0,
-	contentTrigger :0,
+	yearTrigger : 300,
+	labelTrigger : 600,
+	contentTrigger : 1000,
 	yearLaneWidth : window.innerWidth/20,
 	leftEdge : 0, 
-	rightEdge : 0, 
+	rightEdge : 1920, 
 	backgroundGraphic: BackgroundGraphic,
 };
 config.lastYear = config.startYear;

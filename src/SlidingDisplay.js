@@ -37,7 +37,7 @@ class SlidingDisplay extends React.Component {
       <div className="SlidingDisplay">
         <MovingBackground image = {BackgroundGraphic} alttext='John Mattos background graphic' sliderPosition = {this.state.sliderPosition}  />
         <Lanes />
-        <PharmacyWall sliderPosition = {this.state.sliderPosition} db={this.props.db}/>
+        <PharmacyWall sliderPosition = {this.state.sliderPosition} db={this.props.db} configData={this.props.configData} />
         <MouseSlider id='mouseSlider' positionCallback = {this.handleMouseCallback} />
 {/*         <PhidgetSlider id='phidgetSlider' positionCallback = {this.handlePhidgetCallback}/>
  */}      </div>

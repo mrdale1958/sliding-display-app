@@ -53,6 +53,11 @@ body {
 	position:absolute;
 	z-index: 5;
 }
+#PharmacyWall {
+	z-index:10;
+	position: absolute;
+	height: 100%;
+}
 .slider {
 	position:absolute;
 	display: block;
@@ -125,7 +130,7 @@ body {
 	z-index: 10;
 }
 .category-block {
-	position: absolute;
+	position: relative;
 /* 	border-style: solid;
  */	padding: 2px;;
 /* 	border-color:rgb(7, 252, 101);

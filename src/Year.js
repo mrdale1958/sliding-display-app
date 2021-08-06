@@ -1,32 +1,73 @@
 import React from 'react';
+import Category from './Category.js';
 
-
-yearDiv = document.createElement("div");
-          yearDiv.classList.add('year');
-          //yearDiv.id = eventData.YEAR;
-          yearDiv.id = eventData.EXTENDED_YEAR;
-          timelineDiv.appendChild(yearDiv);
-          yearDiv.style.left = newPosition;
-          maxClicks = parseInt(newPosition.slice(0,-2)) + ticksPerYear;
-          let scrollTick = document.createElement("div");
-          scrollTick.classList.add('event-scroll-tick');
-          let tickPosition =  eventData.YEAR;
-          scrollTick.style.left = tickPosition + "px";
-              let slider = document.getElementById("slider");
-              slider.appendChild(scrollTick);
-          //console.log(yearDiv.id, eventData.EXTENDED_YEAR, yearCount, parseInt(newPosition.slice(0,-2)), parseInt(newPosition.slice(0,-2))/320+11.8);
-          //console.log('\t'+ eventData.EXTENDED_YEAR+ '\t'+ parseInt(newPosition.slice(0,-2))+ '\t'+ (parseInt(newPosition.slice(0,-2))/320+11.8) + '\t');
-          yearCount += 1;
 class Year extends React.Component {
     
-    render() {
-        return (
-            <div className='century' style={{left: this.props.position}}>
-            <h2>Hi, I am a CenturyMarker!</h2>
+    
+    buildDivs(database, position, mode) {
+        const eventsByCategory = {};
+        for (var event in  database) {
+            let eventData = database[event];
+            if (eventsByCategory[eventData.CATEGORY]) {
+                eventsByCategory[eventData.CATEGORY].push(eventData);
+            } else {
+                eventsByCategory[eventData.CATEGORY] = [ eventData];
+            }
+        }
+        const yearDiv = Object.keys(eventsByCategory).map((category) =>
+            
+            <Category  key = {category} 
+                        id = {category} 
+                        eventDisplayMode = {mode}
+                        categoryEvents = { eventsByCategory[category] } 
+                        configData = {this.props.configData}/>);
+        
+        return( yearDiv );
+    }
 
-            </div>
+    render() {
+        let mode = "none";
+        let currentScreenPosition = this.props.position - this.props.sliderPosition;
+        if ( currentScreenPosition >= this.props.configData.leftEdge) {
+            if (currentScreenPosition > this.props.configData.yearTrigger) {
+                if (currentScreenPosition > this.props.configData.labelTrigger) {
+                    if (currentScreenPosition > this.props.configData.contentTrigger) {
+                        if (currentScreenPosition > this.props.configData.rightEdge - this.props.configData.contentTrigger) {
+                            if (currentScreenPosition > this.props.configData.rightEdge - this.props.configData.labelTrigger) {
+                                if (currentScreenPosition > this.props.configData.rightEdge - this.props.configData.yearTrigger) {
+                                    if (currentScreenPosition < this.props.configData.rightEdge ) {
+                                        mode = "dot";
+                                    }									
+                                } else {
+                                    mode = "date";
+                                }
+                            } else {
+                                mode = "label";
+                            }
+                        } else {
+                            mode = "full";
+                        }
+                    } else {
+                        mode = "label";
+                    }				
+                } else {
+                    mode = "date";
+                }
+            } else {
+                mode = "dot";
+            } 
+        }
+        
+        let divs = this.buildDivs(this.props.yearsEvents, this.props.sliderPosition, mode)
+
+        return (
+          <div className = 'year' 
+                id = {this.props.id} 
+                style={{left: currentScreenPosition}}>
+          {divs}
+          </div>
         );
-  }
+    }  
 }
 
 export default Year;

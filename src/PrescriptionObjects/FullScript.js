@@ -2,17 +2,29 @@ import React from 'react';
 
 class FullScript extends React.Component {
     constructor() {
-        super();
-        this.state = {color: "red", timePosition: 0};
-      }
+      super();
+      this.state = {color: "red", timePosition: 0};
+    }
+    categoryToClassname(category) {
+      let retVal = category.replace(/[ /]/g, "_").toLowerCase();
+      //console.log(category,retVal);
+      return retVal;
+    }      
     render() {
-        return (
+      return (
+          <div className={"event-block " + this.categoryToClassname(this.props.eventData['CATEGORY'])}>
             <div>
-            <h2>Hi, I am a Template!</h2>
-            <h2>I am a {this.props.color} FullScript!</h2>
-            <h2>I am a {this.state.color} FullScript!</h2>
+              <span className='event-year'>{this.props.eventData['YEAR']}</span>
+              <span className='event-location'>{this.props.eventData['COUNTRY']}</span>
             </div>
-        );
+            <div className='event-heading'>
+              {this.props.eventData['EVENT']}
+            </div>
+            <div className='event-body'>
+              {this.props.eventData['SIGNIFICANCE']}
+            </div>
+          </div>
+      );
   }
 }
 
