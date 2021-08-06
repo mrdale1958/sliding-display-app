@@ -4,6 +4,7 @@ import SlidingDisplay from './SlidingDisplay';
 import reportWebVitals from './reportWebVitals';
 import { readCSVfile }  from './csvreader.js'
 import BackgroundGraphic from './Timeline 11 ARTscreen versiondm.svg';
+import registerServiceWorker from './registerServiceWorker';
 
 
 let config = {
@@ -58,6 +59,7 @@ function runExhibit(timelineData) {
     </React.StrictMode>,
     document.getElementById('timeline-block')
   );
+  registerServiceWorker();
 
   // If you want to start measuring performance in your app, pass a function
   // to log results (for example: reportWebVitals(console.log))

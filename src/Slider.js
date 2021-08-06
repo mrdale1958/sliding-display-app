@@ -87,3 +87,4 @@ class Slider extends React.Component {
         </div>
       )
   }
+}
