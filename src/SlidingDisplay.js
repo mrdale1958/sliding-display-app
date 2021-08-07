@@ -27,7 +27,7 @@ class SlidingDisplay extends React.Component {
     });
   } */
   handlePhidgetCallback = (positionData) =>{
-    //console.log('phidget callback',positionData);
+    console.log('phidget callback',positionData);
     this.setState((state, props) => {
       return {sliderPosition: positionData};
     });
