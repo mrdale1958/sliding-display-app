@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 let config = {
 	incomingURL:window.location.href,
 	travelDistance : 157.4, // inches ... 6.674 screen widtha
-	clickDensity : 320, //clicks per inch
+	clickDensity : 255, //clicks per inch
 	availableClicks :  39863,
 	timelineData : {},
 	layout : 'nonlinear',// square, log, superlog, linear
@@ -28,14 +28,17 @@ let config = {
 	labelTrigger : 1400,
 	contentTrigger : 1800,
 	yearLaneWidth : window.innerWidth/20,
-	leftEdge : 300, 
-	rightEdge : 1920, 
+	labelWidth : 300,
+	rightEdge : 3840,
+	leftEdge : 0,
 	backgroundGraphic: BackgroundGraphic,
 };
 config.lastYear = config.startYear;
-config.availableClicks = config.clickDensity * config.travelDistance; // 50373
+config.availableClicks = config.clickDensity * config.travelDistance; // 39863
 config.maxClicks = (config.endYear - config.startYear) * config.ticksPerYear;
-config.rightEdge = window.innerWidth - config.yearLaneWidth - 100;
+config.rightEdge = window.innerWidth - config.yearLaneWidth - 100;  // why was this soooo off?
+config.leftEdge = 0 + config.labelWidth;
+config.rightEdge = 3840 - config.labelWidth; 
 
 
 fetch('Pharmacy History noquotes.tsv')

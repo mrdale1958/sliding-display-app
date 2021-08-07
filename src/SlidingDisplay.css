@@ -85,7 +85,7 @@ body {
 	/*top: 200px;*/
 }
 #printed-svg-object {
-	height:25800px;
+	height:2580px;
 }
 .right-side {
 	position: absolute;
@@ -295,7 +295,7 @@ body {
 .lane.discovery_invention {
 	background: linear-gradient(to right, var(--lane_gradient_end), var(--discovery_invention),var(--discovery_invention_dark),var(--discovery_invention),var(--lane_gradient_end));
 	opacity: 0.75;
-	height: calc(15px + var(--laneHeight));
+	height: calc(15px + var(--lane-height));
 }
 .lane.health_science_history {
 	background: linear-gradient(to right, var(--lane_gradient_end), var(--health_science_history),var(--health_science_history_dark),var(--health_science_history),var(--lane_gradient_end));
