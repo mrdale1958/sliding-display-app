@@ -1,5 +1,5 @@
 import React from 'react';
-import CenturyMarker from './CenturyMarker.js';
+// import CenturyMarker from './CenturyMarker.js';
 import Year from './Year.js';
 
 class PharmacyWall extends React.Component {
@@ -25,10 +25,10 @@ class PharmacyWall extends React.Component {
       for (var event in  database) {
         let eventData = database[event];
         if ( String(lastYear).slice(0,2) !== String(eventData.YEAR).slice(0,2)) {
-          timelineDiv.push(<CenturyMarker 
-                  key = {String(eventData.YEAR).slice(0,2) + '00' } 
-                  id = {String(eventData.YEAR).slice(0,2) + '00' }
-                  position = {Number(eventData.TickPosInInches) * this.props.configData.clickDensity} />);
+          // timelineDiv.push(<CenturyMarker 
+          //         key = {String(eventData.YEAR).slice(0,2) + '00' } 
+          //         id = {String(eventData.YEAR).slice(0,2) + '00' }
+          //         position = {Number(eventData.TickPosInInches) * this.props.configData.clickDensity} />);
 //parseInt(yearToPosition(this.props.eventData.YEAR).slice(0,-2)) - 5 + "px"}
           //lastYear = eventData.YEAR;
         }
