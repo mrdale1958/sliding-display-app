@@ -1,17 +1,29 @@
 import React from 'react';
-var phidget22 = require('phidget22');
 
 
 
 class PhidgetSlider extends React.Component {
     constructor() {
         super();
-        this.state = {color: "red", conn: new phidget22.Connection(5661, 'localhost')};
-        this.state.conn.connect().then(this.buildPhidgetConnection);
+        const phidgetObject = new phidget22.Connection(8989, 'localhost');
+        phidgetObject.connect()
+        .then(()=>console.log('time to build a phidget interface'))
+        .catch(error=>console.log(error))
+        .finally(()=>console.log('done dying'));
+        const phidgetEncoder = new phidget22.Encoder();
+        this.state = {color: "red", conn: phidgetObject, encoder: phidgetEncoder};
 
       }
+
+    componentDidMount() {
+        console.log(this.state, this.state.conn, this.state.encoder);
+        this.state.conn.connect().then(buildPhidgetConnection)
+		.catch(function (err) {
+			alert('failed to connect to server:' + err);
+		});;
+    }
     buildPhidgetConnection() {
-        var encoder0 = new phidget22.Encoder();
+        var encoder0 = this.state.encoder;
 
         encoder0.onPositionChange = function onEncoder0_PositionChange(positionChange, timeChange, indexTriggered) {
             console.log('PositionChange: ' + positionChange.toString())
@@ -36,6 +48,9 @@ class PhidgetSlider extends React.Component {
                 encoder0.close();
                 process.exit(0);
             }, 5000);
+        })
+        .catch(function (err) {
+            console.log('failed to open the channel:' + err);
         });       
     }
     render() {
@@ -48,4 +63,4 @@ class PhidgetSlider extends React.Component {
   }
 }
 
-export default Template;
+export default PhidgetSlider;
