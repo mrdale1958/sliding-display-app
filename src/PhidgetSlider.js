@@ -4,6 +4,7 @@ import React from 'react';
 
 class PhidgetSlider extends React.Component {
     constructor() {
+        let phidget22 = window.phidget22;
         super();
         const phidgetObject = new phidget22.Connection(8989, 'localhost');
         phidgetObject.connect()
@@ -17,7 +18,7 @@ class PhidgetSlider extends React.Component {
 
     componentDidMount() {
         console.log(this.state, this.state.conn, this.state.encoder);
-        this.state.conn.connect().then(buildPhidgetConnection)
+        this.state.conn.connect().then(this.buildPhidgetConnection)
 		.catch(function (err) {
 			alert('failed to connect to server:' + err);
 		});;
