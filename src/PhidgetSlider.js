@@ -22,18 +22,19 @@ class PhidgetSlider extends React.Component {
     buildPhidgetConnection() {
         var encoder0 = this.state.encoder;
         const updateSlider = this.props.positionCallback;
+        const maxClicks = this.props.configData.availableClicks;
         encoder0.onPositionChange = function onEncoder0_PositionChange(positionChange, timeChange, indexTriggered) {
             let newX = encoder0.getPosition();
             console.log('PositionChange: ', positionChange.toString(),newX);
-            // if (newX < 0) {
-            //     console.log('0000000000000',newX);
-            //     encoder0.setPosition(0);
-            //     newX=0;
-            // } else if (newX>this.props.configData.availableClicks) {
-            //     console.log('===============',newX);
-            //     encoder0.setPosition(this.props.configData.availableClicks);
-            //     newX=this.props.configData.availableClicks;
-            // }
+            if (newX < 0) {
+                console.log('0000000000000',newX);
+                encoder0.setPosition(0);
+                newX=0;
+            } else if (newX>maxClicks) {
+                console.log('===============',newX);
+                encoder0.setPosition();
+                newX=maxClicks;
+            }
             //console.log('++++++++++',newX);
             updateSlider(newX);
             //console.log('----------',newX);

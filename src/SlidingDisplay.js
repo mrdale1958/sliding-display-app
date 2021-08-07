@@ -41,7 +41,7 @@ class SlidingDisplay extends React.Component {
         <Lanes />
         <PharmacyWall sliderPosition = {this.state.sliderPosition} db={this.props.db} configData={this.props.configData} />
 {/*         <MouseSlider id='mouseSlider' positionCallback = {this.handleMouseCallback} />
- */}       <PhidgetSlider id='phidgetSlider' positionCallback = {this.handlePhidgetCallback}/>
+ */}       <PhidgetSlider id='phidgetSlider' positionCallback = {this.handlePhidgetCallback} configData={this.props.configData} />
       </div>
     );
   }
