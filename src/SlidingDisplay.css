@@ -16,7 +16,7 @@
 	--education_dark:#403D3E;
 	--health_science_history_dark:#8F3A14;
 	--world_event_dark:#493B43;
-	--lane-height: 13.8%;
+	--lane-height: 14.0%;
 }
 html {
 	width: 100%;
@@ -85,7 +85,7 @@ body {
 	/*top: 200px;*/
 }
 #printed-svg-object {
-	height:2630px;
+	height:25800px;
 }
 .right-side {
 	position: absolute;
@@ -295,6 +295,7 @@ body {
 .lane.discovery_invention {
 	background: linear-gradient(to right, var(--lane_gradient_end), var(--discovery_invention),var(--discovery_invention_dark),var(--discovery_invention),var(--lane_gradient_end));
 	opacity: 0.75;
+	height: calc(15px + var(--laneHeight));
 }
 .lane.health_science_history {
 	background: linear-gradient(to right, var(--lane_gradient_end), var(--health_science_history),var(--health_science_history_dark),var(--health_science_history),var(--lane_gradient_end));
@@ -323,11 +324,11 @@ body {
 }
 
 .disease_catastrophe_top {
-	top: calc(var(--lane-height) * 0);
+	top: calc(-15px + var(--lane-height) * 0);
 	
 }
 .discovery_invention_top {
-	top: calc(var(--lane-height)* 1);
+	top: calc(-15px + var(--lane-height)* 1);
 
 }
 .drug_company_history_top {

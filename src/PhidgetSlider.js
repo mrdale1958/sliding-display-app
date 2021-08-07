@@ -24,7 +24,7 @@ class PhidgetSlider extends React.Component {
         const updateSlider = this.props.positionCallback;
         encoder0.onPositionChange = function onEncoder0_PositionChange(positionChange, timeChange, indexTriggered) {
             let newX = encoder0.getPosition();
-            //console.log('PositionChange: ', positionChange.toString(),newX);
+            console.log('PositionChange: ', positionChange.toString(),newX);
             // if (newX < 0) {
             //     console.log('0000000000000',newX);
             //     encoder0.setPosition(0);
@@ -40,7 +40,7 @@ class PhidgetSlider extends React.Component {
 
         };
     
-        encoder0.open()
+        encoder0.open((openEncoder) => {updateSlider(openEncoder.getPosition())})
         .catch(function (err) {
             console.log('failed to open the channel:' + err);
         });       
