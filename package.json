@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "startbin": "./node_modules/react-scripts/bin/react-scripts.js start",
+    "startbiun": "./node_modules/react-scripts/bin/react-scripts.js start",
     "electron": "electron .",
     "electron-start": "node src/electron-wait-react",
     "react-start": "react-scripts start"

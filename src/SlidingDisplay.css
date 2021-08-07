@@ -195,7 +195,7 @@ body {
 }
 .event-block {
 	width:600px;
-	height: 400px;
+	min-height: 100px;
 	background-color:#fff;
 	color: 0;
 	position:static;
@@ -210,8 +210,8 @@ body {
 	border-width: 10px;
 	border-radius: 20px;
 	border-style: solid;;
-	width: 4px;
-	height: 4px;
+	width: 10px;
+	height: 10px;
 	margin: 0 0 0 400px;
 	transition: height 0.4s linear;
 
@@ -225,7 +225,7 @@ body {
 	color:white;
 	transition: height 0.4s linear;
 	font-size: 16pt;
-	height: 60px;
+	height: 30px;
 	width: 300px;
 	
 }
@@ -233,13 +233,14 @@ body {
 	border-width: 10px;
 	border-radius: 2px;
 	background-color: black;
-	margin: 0 0 0 400px;
+	margin: 0 0 0 40px;
 	border-style: solid;
 	color:white;
 	padding: 20px;
 	min-height: 200px;
 	font-size: 24pt;
 	transition: height 0.4s linear;
+	width: 150px;
 }
 .event-year {
 	font-weight: normal;

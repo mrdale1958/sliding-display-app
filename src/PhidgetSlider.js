@@ -32,7 +32,7 @@ class PhidgetSlider extends React.Component {
                 newX=0;
             } else if (newX>maxClicks) {
                 console.log('===============',newX);
-                encoder0.setPosition();
+                encoder0.setPosition(maxClicks);
                 newX=maxClicks;
             }
             //console.log('++++++++++',newX);
