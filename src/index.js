@@ -11,7 +11,7 @@ let config = {
 	incomingURL:window.location.href,
 	travelDistance : 157.4, // inches ... 6.674 screen widtha
 	clickDensity : 320, //clicks per inch
-	availableClicks : 0,  // 50373
+	availableClicks :  39863,
 	timelineData : {},
 	layout : 'nonlinear',// square, log, superlog, linear
 	startYear : 1590,
