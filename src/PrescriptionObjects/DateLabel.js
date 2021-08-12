@@ -14,8 +14,8 @@ class DateLabel extends React.Component {
     return (
       <div className={"event-date " + this.categoryToClassname(this.props.eventData['CATEGORY'])}>
         <div>
-          <span className='event-year'>{this.props.eventData['YEAR']}</span>
-          <span className='event-location'>{this.props.eventData['COUNTRY']}</span>
+          <div className='event-year'>{this.props.eventData['YEAR']}</div>
+          <div className='event-location'>{this.props.eventData['COUNTRY']}</div>
         </div>
       </div>         );
   }

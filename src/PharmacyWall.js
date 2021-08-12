@@ -1,5 +1,6 @@
 import React from 'react';
 // import CenturyMarker from './CenturyMarker.js';
+import GuideGrid from './GuideGrid.js';
 import Year from './Year.js';
 
 class PharmacyWall extends React.Component {
@@ -32,15 +33,24 @@ class PharmacyWall extends React.Component {
 //parseInt(yearToPosition(this.props.eventData.YEAR).slice(0,-2)) - 5 + "px"}
           //lastYear = eventData.YEAR;
         }
+
+        /*  pass 1 - last year is 0; enqueue current event
+            pass 2 - last year is 1590; render previous queue; enqueue current event
+        */
         if ( lastYear !== eventData.EXTENDED_YEAR) {
-          timelineDiv.push(<Year 
-                              key = {eventData.EXTENDED_YEAR} 
-                              id = {eventData.EXTENDED_YEAR} 
-                              position = {Number(eventData.TickPosInInches) * this.props.configData.clickDensity} 
+          if ( currentYear.length === 0 ) { // first time through 
+            currentYear = [ eventData ];
+          } else {
+            let event0 = currentYear[0];
+            timelineDiv.push(<Year 
+                              key = {lastYear} 
+                              id = {lastYear} 
+                              position = {Number(event0.TickPosInInches) * this.props.configData.clickDensity} 
                               yearsEvents = { currentYear }
                               sliderPosition = {this.props.sliderPosition}
                               configData={this.props.configData}/>);
-          currentYear = [ eventData ];
+            currentYear = [ eventData ];
+          }
         } else {
           currentYear.push(eventData);
         }
@@ -60,6 +70,7 @@ class PharmacyWall extends React.Component {
         return (
             <div id='PharmacyWall'>
             {divs}
+            <GuideGrid configData={this.props.configData} />
             </div>
         );
   }

@@ -18,7 +18,8 @@ let config = {
 	lastYear : 2021,
 	endYear : 2021,
 	ticksPerYear : 154,
-	printedGraphicOffset : -920,
+	printedGraphicOffset : 0,
+	screenWidth : 3840,
 
 	sortedByYear : {},
 	yearCount : 0,
@@ -38,7 +39,7 @@ config.availableClicks = config.clickDensity * config.travelDistance; // 39863
 config.maxClicks = (config.endYear - config.startYear) * config.ticksPerYear;
 config.rightEdge = window.innerWidth - config.yearLaneWidth - 100;  // why was this soooo off?
 config.leftEdge = 0 + config.labelWidth;
-config.rightEdge = 3840 - config.labelWidth; 
+config.rightEdge = config.screenWidth - config.labelWidth; 
 
 
 fetch('Pharmacy History noquotes.tsv')

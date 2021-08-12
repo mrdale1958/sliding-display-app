@@ -32,9 +32,9 @@ class Year extends React.Component {
             if (currentScreenPosition > this.props.configData.yearTrigger) {
                 if (currentScreenPosition > this.props.configData.labelTrigger) {
                     if (currentScreenPosition > this.props.configData.contentTrigger) {
-                        if (currentScreenPosition > this.props.configData.rightEdge - this.props.configData.contentTrigger) {
-                            if (currentScreenPosition > this.props.configData.rightEdge - this.props.configData.labelTrigger) {
-                                if (currentScreenPosition > this.props.configData.rightEdge - this.props.configData.yearTrigger) {
+                        if (currentScreenPosition > this.props.configData.screenWidth - this.props.configData.contentTrigger) {
+                            if (currentScreenPosition > this.props.configData.screenWidth - this.props.configData.labelTrigger) {
+                                if (currentScreenPosition > this.props.configData.screenWidth - this.props.configData.yearTrigger) {
                                     if (currentScreenPosition < this.props.configData.rightEdge ) {
                                         mode = "dot";
                                     }									

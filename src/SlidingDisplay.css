@@ -17,6 +17,7 @@
 	--health_science_history_dark:#8F3A14;
 	--world_event_dark:#493B43;
 	--lane-height: 14.0%;
+	--content-width: 600px;
 }
 html {
 	width: 100%;
@@ -87,6 +88,13 @@ body {
 #printed-svg-object {
 	height:2580px;
 }
+
+.guideline {
+	height: 100%;
+	width: 2px;
+	background-color: yellow;
+	position: absolute;
+}
 .right-side {
 	position: absolute;
 	/* right: 0; needs to be relative to screen not whole thing */
@@ -133,7 +141,7 @@ body {
 /* 	border-style: solid;
  */	padding: 2px;;
 /* 	border-color:rgb(7, 252, 101);
- */	transform: translateY(-50%);
+ 	transform: translateY(-50%);*/
 }
 .century {
 	top: 0;
@@ -194,7 +202,7 @@ body {
 
 }
 .event-block {
-	width:600px;
+	width: var(--content-width);
 	min-height: 100px;
 	background-color:#fff;
 	color: 0;
@@ -212,28 +220,28 @@ body {
 	border-style: solid;;
 	width: 10px;
 	height: 10px;
-	margin: 0 0 0 400px;
+	margin: 0;
 	transition: height 0.4s linear;
 
 }
 .event-date {
 	border-width: 7px;
-	border-radius: 2px;
+	border-radius: 20px;
 	border-style: solid;;
-	margin: 0 0 0 400px;
+	margin: 0;
 	background-color: black;
 	color:white;
 	transition: height 0.4s linear;
 	font-size: 16pt;
-	height: 30px;
-	width: 300px;
+	height: 60px;
+	width: 100px;
 	
 }
 .event-label {
 	border-width: 10px;
 	border-radius: 2px;
 	background-color: black;
-	margin: 0 0 0 40px;
+	margin: 0;
 	border-style: solid;
 	color:white;
 	padding: 20px;
@@ -244,11 +252,14 @@ body {
 }
 .event-year {
 	font-weight: normal;
+	text-align: center;
 /* 	font-size:smaller;
  */}
 .event-location {
 	font-weight: normal;
-	float:right;
+	/*float:right;*/
+	text-align: center;
+
 /* 	font-size:smaller;
  */	font-style:italic;
 }
