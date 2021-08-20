@@ -271,6 +271,73 @@ body {
 	padding: 4px;
 	font-weight: normal;
 }
+
+.event-dot .event-heading {
+	display: none;
+}
+
+.event-dot * .event-year {
+	display: none;
+}
+
+.event-dot * .event-location {
+	display: none;
+}
+
+.event-dot .event-body {
+	display: none;
+}
+
+.event-date .event-heading {
+	display: none;
+}
+
+.event-date * .event-year {
+	display: block;
+}
+
+.event-date * .event-location {
+	display: none;
+}
+
+.event-date .event-body {
+	display: none;
+}
+
+.event-label .event-heading {
+	display: block;
+}
+
+.event-label * .event-year {
+	display: block;
+}
+
+.event-label * .event-location {
+	display: block;
+}
+
+.event-label .event-body {
+	display: none;
+}
+
+.event-block .event-heading {
+	display: block;
+}
+
+.event-block * .event-year {
+	display: block;
+}
+
+.event-block * .event-location {
+	display: block;
+}
+
+.event-block.event-body {
+	display: block;
+}
+
+
+
 .event-scroll-tick {
 	width: 0px;
 	height: 30px;

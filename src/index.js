@@ -18,7 +18,7 @@ let config = {
 	lastYear : 2021,
 	endYear : 2021,
 	ticksPerYear : 154,
-	printedGraphicOffset : 0,
+	printedGraphicOffset : -1920,
 	screenWidth : 3840,
 
 	sortedByYear : {},

@@ -12,7 +12,7 @@ class FullScript extends React.Component {
     }      
     render() {
       return (
-          <div className={"event-block " + this.categoryToClassname(this.props.eventData['CATEGORY'])}>
+          <div className={this.props.className + " " + this.categoryToClassname(this.props.eventData['CATEGORY'])}>
             <div>
               <span className='event-year'>{this.props.eventData['YEAR']}</span>
               <span className='event-location'>{this.props.eventData['COUNTRY']}</span>
