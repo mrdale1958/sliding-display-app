@@ -18,6 +18,7 @@
 	--world_event_dark:#493B43;
 	--lane-height: 14.0%;
 	--content-width: 600px;
+	--event_transition_time: 0.1s;
 }
 html {
 	width: 100%;
@@ -201,6 +202,24 @@ body {
 	display: block;
 
 }
+@keyframes expandBox {
+	from {
+	  transform: scale(0);
+	}
+	to {
+	  transform: scale(1);
+	}
+  }
+
+  @keyframes shrinkBox {
+	to {
+	  transform: scale(0);
+	}
+	from {
+	  transform: scale(1);
+	}
+  }
+
 .event-block {
 	width: var(--content-width);
 	min-height: 100px;
@@ -210,8 +229,9 @@ body {
 	border-width:10px;
 	border-style: solid;;
 	padding: 20px;
-	transition: height 2.4s linear;
-	transition: width 2.4s linear;
+	animation: expandBox var(--event_transition_time);
+	transition: height var(--event_transition_time) linear;
+	transition: width var(--event_transition_time) linear;
 	font-size: 24pt;
 }
 .event-dot {
@@ -221,7 +241,8 @@ body {
 	width: 10px;
 	height: 10px;
 	margin: 0;
-	transition: height 0.4s linear;
+	transition: height var(--event_transition_time) linear;
+	transition: width var(--event_transition_time) linear;
 
 }
 .event-date {
@@ -231,7 +252,8 @@ body {
 	margin: 0;
 	background-color: black;
 	color:white;
-	transition: height 0.4s linear;
+	transition: height var(--event_transition_time) linear;
+	transition: width var(--event_transition_time) linear;
 	font-size: 16pt;
 	height: 60px;
 	width: 100px;
@@ -247,7 +269,8 @@ body {
 	padding: 20px;
 	min-height: 200px;
 	font-size: 24pt;
-	transition: height 0.4s linear;
+	transition: height var(--event_transition_time) linear;
+	transition: width var(--event_transition_time) linear;
 	width: 150px;
 }
 .event-year {
