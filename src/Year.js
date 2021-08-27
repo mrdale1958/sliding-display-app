@@ -27,6 +27,7 @@ class Year extends React.Component {
 
     render() {
         let mode = "none";
+        let divs = <div>&nbsp;</div>
         let currentScreenPosition = this.props.position - this.props.sliderPosition;
         if ( currentScreenPosition >= this.props.configData.leftEdge) {
             if (currentScreenPosition > this.props.configData.yearTrigger) {
@@ -56,10 +57,12 @@ class Year extends React.Component {
             } else {
                 mode = "dot";
             } 
-        }
+        } 
+            
         
-        let divs = this.buildDivs(this.props.yearsEvents, this.props.sliderPosition, mode)
-
+        if ( mode !== "none" ) {
+            divs = this.buildDivs(this.props.yearsEvents, this.props.sliderPosition, mode)
+        }
         return (
           <div className = 'year' 
                 id = {this.props.id} 

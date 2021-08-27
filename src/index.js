@@ -41,6 +41,13 @@ config.rightEdge = window.innerWidth - config.yearLaneWidth - 100;  // why was t
 config.leftEdge = 0 + config.labelWidth;
 config.rightEdge = config.screenWidth - config.labelWidth; 
 
+let fauxPhidgetConfig = {
+	running : false,
+	slideIncrement : 20,
+	direction : 1,
+	moveTime : 1 // milliseconds
+}
+config.fauxPhidgetConfig = fauxPhidgetConfig;
 
 fetch('Pharmacy History noquotes.tsv')
 	.then((response) => {

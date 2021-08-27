@@ -7,7 +7,10 @@ class Template extends React.Component {
       }
     render() {
         return (
-          <div className="printed-graphic" style={{left: String(-this.props.sliderPosition + this.props.configData.printedGraphicOffset) + "px"}}>
+          <div className="printed-graphic" style={{left: 
+                  String(
+                    Math.max(-this.props.configData.availableClicks, 
+                      Math.min(this.props.configData.printedGraphicOffset, -this.props.sliderPosition + this.props.configData.printedGraphicOffset))) + "px"}}>
           {/* <object id="printed-svg-object" data="Timeline 11 ARTscreen versiondm.svg" type="image/svg+xml"> 
             <img src="background.jpg" />
           </object>	 */}

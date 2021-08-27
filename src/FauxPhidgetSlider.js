@@ -1,60 +1,74 @@
-import React, { useEffect }  from 'react';
+import { useEffect, useState }  from 'react';
 
 
 
 const FauxPhidgetSlider = (props) => {
-    const [position, setPosition] = useState(0);
-    const [fauxPhidgetConfig, setFauxPhidgetConfig] = useState(props.fauxPhidgetConfig);
+    const [position, setPosition] = useState(props.sliderPosition);
+    const [fauxPhidgetConfig, setFauxPhidgetConfig] = useState(props.configData.fauxPhidgetConfig);
     const [running, setRunning] = useState(false);
     
     
     
 
    
-    useEffect(() => {
-        window.addEventListener('keyup', handleKey);
-   
-        // cleanup this component
-        return () => {
-        window.removeEventListener('keyup', handleKey);
-        };
-    }, []);  
-
-    useEffect(() => {
-        window.addEventListener('mouseup', handleClick);
-    
-        // cleanup this component
-        return () => {
-        window.removeEventListener('mouseup', handleClick);
-        };
-    }, []); 
+  
+    const handleClick = (e) => { 
+      
+    }
 
     const handleKey = (e) => {
-
-    const handleClick = (e) => {
         if (typeof e === 'object') {
-            switch (e.keyCode) {
-              case '+':
-                  let newRunningState = ! this.state.running;
-                this.setState(prevState => ({running : newRunningState}))
+            let config = fauxPhidgetConfig;
+            switch (e.key) {
+                case '.':
+                    setRunning(! running);
+                    config.running = ! config.running;
+                    config.position = position;
                 break;
-            //   case 1:
+                case '+':
+                    config.slideIncrement  = config.slideIncrement + 1;
+                    break;
+                case '*':
+                    config.slideIncrement  = config.slideIncrement + 10;
+
+                break;
+                case '-':
+                    config.slideIncrement  = Math.max(1, config.slideIncrement - 1);
+
+                break;
+                case '/':
+                    config.slideIncrement  = Math.max(10, config.slideIncrement - 10);
+
+                break;
+                case 'ArrowLeft':
+                    config.direction = 1;
+                break;
+                case 'ArrowRight':
+                    config.direction = -1;
+
+                break;
+                      //   case 1:
             //     log.textContent = 'Middle button clicked.';
             //     break;
             //   case 2:
             //     log.textContent = 'Right button clicked.';
             //     break;
-            //   default:
-            //     log.textContent = `Unknown button code: ${e.button}`;
+                default:
+                console.log('Unknown button code:', e.button);
+            }
+            setFauxPhidgetConfig (config);
+            if (config.running) {
+                setTimeout(updatePosition, config.moveTime);
             }
           } 
-          if (this.state.running) {
-
-          }
+          
     }
 
-    updatePosition() {
-        let newX = this.state.position + this.state.fauxPhidgetConfig.slideIncrement;
+    const updatePosition = () => {
+        let config = fauxPhidgetConfig;
+        const maxClicks = props.configData.availableClicks;
+
+        let newX = config.position + (config.slideIncrement * config.direction);
         if ( newX < 0) {
             console.log('0000000000000',newX);
             newX = 0;
@@ -63,19 +77,28 @@ const FauxPhidgetSlider = (props) => {
             //encoder0.setPosition(maxClicks);
             newX=maxClicks;
         }
-        this.setState(prevState => ({position :  newX}));
-        this.props.positionCallback(this.state.position);
+        config.position = newX;
+        setPosition(newX);
+        props.positionCallback(newX);
+        if (config.running) {
+            setTimeout(updatePosition, config.moveTime);
+        }
     }
+    const useWindowEvent = (event, callback, dependencies) => {
+        useEffect(() => {
+          window.addEventListener(event, callback);
+          return () => window.removeEventListener(event, callback);
+ // eslint-disable-next-line 
+       }, [event, callback, ...dependencies = []]);
+      };
 
-    handleKey(e) {
-        this.props.fauxPhidgetConfig(this.state.fauxPhidgetConfig);
-    }
-
+      useWindowEvent('keydown', handleKey);
+   
+      useWindowEvent('mouseup', handleClick);
     
-        return (
-           
-        );
-  }
+    
+    return <div>&nbsp;</div>;
+  
 }
 
 export default FauxPhidgetSlider;
