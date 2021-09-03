@@ -20,8 +20,9 @@ class FullScript extends React.Component {
             <div className='event-heading'>
               {this.props.eventData['EVENT']}
             </div>
-            <div className='event-body'>
-              {this.props.eventData['SIGNIFICANCE']}
+            { if (this.props.eventData['SIGNIFICANCE'] != "") }
+                <div className='event-body'>
+                {this.props.eventData['SIGNIFICANCE']}
             </div>
           </div>
       );

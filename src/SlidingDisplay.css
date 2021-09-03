@@ -17,7 +17,7 @@
 	--health_science_history_dark:#8F3A14;
 	--world_event_dark:#493B43;
 	--lane-height: 14.0%;
-	--content-width: 600px;
+	--content-width: 650px;
 	--event_transition_time: 0.1s;
 }
 html {
@@ -228,7 +228,7 @@ body {
 	position:static;
 	border-width:10px;
 	border-style: solid;;
-	padding: 20px;
+	padding: 5px;
 	animation: expandBox var(--event_transition_time);
 	transition: height var(--event_transition_time) linear;
 	transition: width var(--event_transition_time) linear;
@@ -305,6 +305,7 @@ body {
 .event-body {
 	padding: 4px;
 	font-weight: normal;
+	border-top: black 1px solid;
 }
 
 .event-dot .event-heading {
@@ -357,14 +358,17 @@ body {
 
 .event-block .event-heading {
 	display: block;
+	padding-top: 15px;
 }
 
 .event-block * .event-year {
 	display: block;
+	float: left
 }
 
 .event-block * .event-location {
 	display: block;
+	float: right;
 }
 
 .event-block.event-body {
