@@ -33,6 +33,11 @@ let config = {
 	rightEdge : 3840,
 	leftEdge : 0,
 	backgroundGraphic: BackgroundGraphic,
+	leftSideSlope: -1/1000,
+	leftSideIntercept: 1.5,
+	rightSideSlope: 1/1000,
+	rightSideIntercept: -0.5,
+	
 };
 config.lastYear = config.startYear;
 config.availableClicks = config.clickDensity * config.travelDistance; // 39863
@@ -40,7 +45,8 @@ config.maxClicks = (config.endYear - config.startYear) * config.ticksPerYear;
 config.rightEdge = window.innerWidth - config.yearLaneWidth - 100;  // why was this soooo off?
 config.leftEdge = 0 + config.labelWidth;
 config.rightEdge = config.screenWidth - config.labelWidth; 
-
+config.leftSideSlope = -2/config.screenWidth;
+config.rightSideSlope = 2/config.screenWidth;
 let fauxPhidgetConfig = {
 	running : false,
 	slideIncrement : 20,

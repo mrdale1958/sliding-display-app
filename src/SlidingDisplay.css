@@ -141,8 +141,8 @@ body {
 	position: relative;
 /* 	border-style: solid;
  */	padding: 2px;;
-/* 	border-color:rgb(7, 252, 101);
- 	transform: translateY(-50%);*/
+/* 	border-color:rgb(7, 252, 101);*/
+ 	transform: translateX(-50%);
 }
 .century {
 	top: 0;
@@ -234,6 +234,18 @@ body {
 	transition: width var(--event_transition_time) linear;
 	font-size: 24pt;
 }
+.h {
+	transform: translateY(-50%);
+}
+
+.m {
+	transform: translateY(0);
+}
+
+.l {
+	transform: translateY(50%);
+}
+
 .event-dot {
 	border-width: 10px;
 	border-radius: 20px;

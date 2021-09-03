@@ -24,6 +24,25 @@ class Year extends React.Component {
         
         return( yearDiv );
     }
+    integral (x1,x2,m,b) {
+        return(((m/2)*x2*x2 + b*x2)-((m/2)*x1*x1 + b*x1))
+    }
+    distortScreenPosition(linearScreenPosition) {
+        let retval;
+        
+        let midpoint = this.props.configData.rightEdge/2;
+        if (linearScreenPosition <= midpoint) {
+            retval = this.integral(0,linearScreenPosition, this.props.configData.leftSideSlope, this.props.configData.leftSideIntercept);
+
+        } else {
+            retval = midpoint + this.integral(midpoint,linearScreenPosition, this.props.configData.rightSideSlope, this.props.configData.rightSideIntercept);
+                            
+        }
+        return(retval);
+        
+
+
+    }
 
     render() {
         let mode = "none";
@@ -32,8 +51,8 @@ class Year extends React.Component {
         if ( currentScreenPosition >= this.props.configData.leftEdge) {
             if (currentScreenPosition > this.props.configData.yearTrigger) {
                 if (currentScreenPosition > this.props.configData.labelTrigger) {
-                    if (currentScreenPosition > this.props.configData.contentTrigger) {
-                        if (currentScreenPosition > this.props.configData.screenWidth - this.props.configData.contentTrigger) {
+                    //if (currentScreenPosition > this.props.configData.contentTrigger) {
+                    //    if (currentScreenPosition > this.props.configData.screenWidth - this.props.configData.contentTrigger) {
                             if (currentScreenPosition > this.props.configData.screenWidth - this.props.configData.labelTrigger) {
                                 if (currentScreenPosition > this.props.configData.screenWidth - this.props.configData.yearTrigger) {
                                     if (currentScreenPosition < this.props.configData.rightEdge ) {
@@ -42,15 +61,15 @@ class Year extends React.Component {
                                 } else {
                                     mode = "date";
                                 }
-                            } else {
-                                mode = "label";
-                            }
+                            //} else {
+                              //  mode = "label";
+                            //}
                         } else {
                             mode = "full";
                         }
-                    } else {
-                        mode = "label";
-                    }				
+                    //} else {
+                       // mode = "label";
+                    //}				
                 } else {
                     mode = "date";
                 }
@@ -63,10 +82,12 @@ class Year extends React.Component {
         if ( mode !== "none" ) {
             divs = this.buildDivs(this.props.yearsEvents, this.props.sliderPosition, mode)
         }
+
+        let distortedScreenPosition = this.distortScreenPosition(currentScreenPosition);
         return (
           <div className = 'year' 
                 id = {this.props.id} 
-                style={{left: currentScreenPosition}}>
+                style={{left: distortedScreenPosition}}>
           {divs}
           </div>
         );

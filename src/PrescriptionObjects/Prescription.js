@@ -29,7 +29,8 @@ class Prescription extends React.Component {
 
       } else if (this.props.mode === "full") {
         //modalDiv = <FullScript className = "event-block" eventData = {this.props.eventData}/>
-        magicDiv = <FullScript id = {this.props.eventData.TickPosInInches} className = "event-block" eventData = {this.props.eventData}/>
+        let classList = "event-block " + this.props.eventData.Yalign;
+        magicDiv = <FullScript id = {this.props.eventData.TickPosInInches} className =  {classList} eventData = {this.props.eventData}/>
 
       } 
         return (
