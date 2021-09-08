@@ -41,6 +41,12 @@ class PhidgetSlider extends React.Component {
 
         };
     
+        encoder0.onDetach = function(ch) {
+            console.log(encoder0 + ' detached');
+        };
+        encoder0.onError = function(ch) {
+            console.log(encoder0 + ' error');
+        };
         encoder0.open((openEncoder) => {updateSlider(openEncoder.getPosition())})
         .catch(function (err) {
             console.log('failed to open the channel:' + err);
