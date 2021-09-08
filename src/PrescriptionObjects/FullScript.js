@@ -11,19 +11,23 @@ class FullScript extends React.Component {
       return retVal;
     }      
     render() {
+      let eventBody;
+      if (this.props.eventData['SIGNIFICANCE'] !== "") {
+        eventBody = <div className='event-body'>
+          {this.props.eventData['SIGNIFICANCE']}
+        </div>
+      }
       return (
           <div className={this.props.className + " " + this.categoryToClassname(this.props.eventData['CATEGORY'])}>
             <div>
               <span className='event-year'>{this.props.eventData['YEAR']}</span>
               <span className='event-location'>{this.props.eventData['COUNTRY']}</span>
             </div>
-            <div className='event-heading'>
-              {this.props.eventData['EVENT']}
+            <div className='event-heading' dangerouslySetInnerHTML={{ __html: this.props.eventData['EVENT']}}>
+
             </div>
-            { if (this.props.eventData['SIGNIFICANCE'] != "") }
-                <div className='event-body'>
-                {this.props.eventData['SIGNIFICANCE']}
-            </div>
+            {eventBody}
+           
           </div>
       );
   }

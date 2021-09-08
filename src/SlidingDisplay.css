@@ -16,7 +16,7 @@
 	--education_dark:#403D3E;
 	--health_science_history_dark:#8F3A14;
 	--world_event_dark:#493B43;
-	--lane-height: 14.0%;
+	--lane-height: 312px;
 	--content-width: 650px;
 	--event_transition_time: 0.1s;
 }
@@ -87,14 +87,22 @@ body {
 	/*top: 200px;*/
 }
 #printed-svg-object {
-	height:2580px;
+	/* height:2580px; */
+	width: 33859px;
 }
 
 .guideline {
-	height: 100%;
-	width: 2px;
 	background-color: yellow;
 	position: absolute;
+}
+.guideline.vertical {
+	height: 100%;
+	width: 2px;
+}
+.guideline.horizontal {
+	width: 4000px;
+	height: 2px;
+	transform: translateY(calc(var(--lane-height)/2));
 }
 .right-side {
 	position: absolute;
@@ -138,7 +146,7 @@ body {
 	z-index: 10;
 }
 .category-block {
-	position: relative;
+	position: absolute;
 /* 	border-style: solid;
  */	padding: 2px;;
 /* 	border-color:rgb(7, 252, 101);*/
@@ -235,15 +243,20 @@ body {
 	font-size: 24pt;
 }
 .h {
-	transform: translateY(-50%);
+	transform: translateY(-100%);
 }
 
 .m {
-	transform: translateY(0);
+	transform: translateY(-50%);
 }
 
 .l {
-	transform: translateY(50%);
+	transform: translateY(0%);
+}
+
+.w {
+	transform: translateY(-50%);
+	width: 1000px;
 }
 
 .event-dot {
@@ -255,6 +268,7 @@ body {
 	margin: 0;
 	transition: height var(--event_transition_time) linear;
 	transition: width var(--event_transition_time) linear;
+	transform: translateY(-50%);
 
 }
 .event-date {
@@ -266,9 +280,11 @@ body {
 	color:white;
 	transition: height var(--event_transition_time) linear;
 	transition: width var(--event_transition_time) linear;
-	font-size: 16pt;
+	font-size: 24pt;
+	padding-top: 8px;
 	height: 60px;
 	width: 100px;
+	transform: translateY(-50%);
 	
 }
 .event-label {
@@ -413,7 +429,6 @@ body {
 .lane.discovery_invention {
 	background: linear-gradient(to right, var(--lane_gradient_end), var(--discovery_invention),var(--discovery_invention_dark),var(--discovery_invention),var(--lane_gradient_end));
 	opacity: 0.75;
-	height: calc(12px + var(--lane-height));
 }
 .lane.health_science_history {
 	background: linear-gradient(to right, var(--lane_gradient_end), var(--health_science_history),var(--health_science_history_dark),var(--health_science_history),var(--lane_gradient_end));
@@ -442,39 +457,75 @@ body {
 }
 
 .disease_catastrophe_top {
-	top: calc(-15px + var(--lane-height) * 0);
+	top: calc(4px + var(--lane-height) * 0);
+	height: calc(0px + var(--lane-height));
 	
 }
 .discovery_invention_top {
-	top: calc(-15px + var(--lane-height)* 1);
+	top: calc(-1px + var(--lane-height)* 1.0);
+	height: calc(4px + var(--lane-height));
 
 }
 .drug_company_history_top {
-	top: calc(-3px + var(--lane-height) * 2);
-	height: calc(3px + var(--lane-height));
+	top: calc(3px + var(--lane-height) * 2.0);
+	height: calc(-1px + var(--lane-height));
 
 }
 
 .legislation_top {
-	top: calc(var(--lane-height) * 3);
-	height:calc(var(--lane-height) + 12px);
+	top: calc(1px + var(--lane-height) * 3.0);
+	height:calc(var(--lane-height) + 10px);
 
 }
 .education_top {
-	top: calc(-5px + var(--lane-height) * 4.065);
-	height:calc(var(--lane-height) + 12px);
+	top: calc(11px + var(--lane-height) * 4.0);
+	height:calc(var(--lane-height) + -6px);
 
 }
 .health_science_history_top {
-	top: calc(-8px +  var(--lane-height) * 5.1195);
-	height:calc(var(--lane-height) + 9px);
+	top: calc(5px +  var(--lane-height) * 5.0);
+	height:calc(var(--lane-height) + 2px);
 
 }
 .world_event_top {
-	top: calc(var(--lane-height) * 6.12);
-	height:calc(var(--lane-height) + 8px);
+	top: calc(7px + var(--lane-height) * 6.0);
+	height:calc(var(--lane-height) - 30px);
 
 	
+}
+
+.category-block.disease_catastrophe_top {
+	transform: translateY(156px);
+	
+}
+.category-block.discovery_invention_top {
+	transform: translateY(156px);
+
+}
+.category-block.drug_company_history_top {
+	transform: translateY(156px);
+
+
+}
+
+.category-block.legislation_top {
+	transform: translateY(156px);
+
+
+}
+.category-block.education_top {
+	transform: translateY(156px);
+
+
+}
+.category-block.health_science_history_top {
+	transform: translateY(156px);
+
+
+}
+.category-block.world_event_top {
+	transform: translateY(156px);
+
 }
 .century_marks_top {
 	top: calc(var(--lane-height) * 7);

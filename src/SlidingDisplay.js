@@ -14,7 +14,7 @@ class SlidingDisplay extends React.Component {
   constructor() {
     super();
     this.state = {
-        sliderPosition: 1920
+        sliderPosition: 0
     };
     this.handlePhidgetCallback = this.handlePhidgetCallback.bind(this);
     //this.handleMouseCallback = this.handleMouseCallback.bind(this);
@@ -31,7 +31,7 @@ class SlidingDisplay extends React.Component {
   handlePhidgetCallback = (positionData) =>{
     console.log('phidget callback',positionData);
     this.setState((state, props) => {
-      return {sliderPosition: positionData};// + 1920};
+      return {sliderPosition: positionData}; // + this.props.configData.screenWidth/2};
     });
   }
 

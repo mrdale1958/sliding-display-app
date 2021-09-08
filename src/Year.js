@@ -30,7 +30,7 @@ class Year extends React.Component {
     distortScreenPosition(linearScreenPosition) {
         let retval;
         
-        let midpoint = this.props.configData.rightEdge/2;
+        let midpoint = this.props.configData.screenWidth/2;
         if (linearScreenPosition <= midpoint) {
             retval = this.integral(0,linearScreenPosition, this.props.configData.leftSideSlope, this.props.configData.leftSideIntercept);
 
@@ -47,14 +47,14 @@ class Year extends React.Component {
     render() {
         let mode = "none";
         let divs = <div>&nbsp;</div>
-        let currentScreenPosition = this.props.position - this.props.sliderPosition;
+        let currentScreenPosition = this.props.position - this.props.sliderPosition + this.props.configData.screenWidth/2;
         if ( currentScreenPosition >= this.props.configData.leftEdge) {
             if (currentScreenPosition > this.props.configData.yearTrigger) {
-                if (currentScreenPosition > this.props.configData.labelTrigger) {
-                    //if (currentScreenPosition > this.props.configData.contentTrigger) {
-                    //    if (currentScreenPosition > this.props.configData.screenWidth - this.props.configData.contentTrigger) {
-                            if (currentScreenPosition > this.props.configData.screenWidth - this.props.configData.labelTrigger) {
-                                if (currentScreenPosition > this.props.configData.screenWidth - this.props.configData.yearTrigger) {
+                //if (currentScreenPosition > this.props.configData.labelTrigger) {
+                    if (currentScreenPosition > this.props.configData.contentTrigger) {
+                        if (currentScreenPosition > this.props.configData.rightEdge - this.props.configData.contentTrigger) {
+                            //if (currentScreenPosition > this.props.configData.rightEdge - this.props.configData.labelTrigger) {
+                                if (currentScreenPosition > this.props.configData.rightEdge - this.props.configData.yearTrigger) {
                                     if (currentScreenPosition < this.props.configData.rightEdge ) {
                                         mode = "dot";
                                     }									
@@ -62,13 +62,13 @@ class Year extends React.Component {
                                     mode = "date";
                                 }
                             //} else {
-                              //  mode = "label";
+                            //    mode = "none";
                             //}
                         } else {
                             mode = "full";
                         }
                     //} else {
-                       // mode = "label";
+                    //    mode = "none";
                     //}				
                 } else {
                     mode = "date";

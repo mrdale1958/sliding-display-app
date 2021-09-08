@@ -6,11 +6,12 @@ class Template extends React.Component {
         this.state = {color: "red"};
       }
     render() {
+      let acceleratedPosition = this.props.configData.printedGraphicScaleX * this.props.sliderPosition;
         return (
           <div className="printed-graphic" style={{left: 
                   String(
                     Math.max(-this.props.configData.availableClicks, 
-                      Math.min(this.props.configData.printedGraphicOffset, -this.props.sliderPosition + this.props.configData.printedGraphicOffset))) + "px"}}>
+                      Math.min(this.props.configData.printedGraphicOffset, -acceleratedPosition + this.props.configData.printedGraphicOffset))) + "px"}}>
           {/* <object id="printed-svg-object" data="Timeline 11 ARTscreen versiondm.svg" type="image/svg+xml"> 
             <img src="background.jpg" />
           </object>	 */}

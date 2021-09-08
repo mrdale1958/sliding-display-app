@@ -43,8 +43,9 @@ class PharmacyWall extends React.Component {
           } else {
             let event0 = currentYear[0];
             let position = Number(event0.TickPosInInches) * this.props.configData.clickDensity;
-            let currentScreenPosition = position - this.props.sliderPosition;
-            if ( (currentScreenPosition >= this.props.configData.leftEdge ) && (currentScreenPosition < this.props.configData.rightEdge ))
+            let currentScreenPosition = position - this.props.sliderPosition + this.props.configData.screenWidth/2;
+            if ( (currentScreenPosition >= this.props.configData.leftEdge ) &&
+                 (currentScreenPosition < this.props.configData.rightEdge ))
             {
               timelineDiv.push(<Year 
                               key = {lastYear} 
@@ -52,7 +53,7 @@ class PharmacyWall extends React.Component {
                               position = {position} 
                               yearsEvents = { currentYear }
                               sliderPosition = {this.props.sliderPosition}
-                              configData={this.props.configData}/>);
+                              configData = {this.props.configData}/>);
             }
             currentYear = [ eventData ];
           }
