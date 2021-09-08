@@ -1,6 +1,6 @@
 import React from 'react';
 // import CenturyMarker from './CenturyMarker.js';
-import GuideGrid from './GuideGrid.js';
+//import GuideGrid from './GuideGrid.js';
 import Year from './Year.js';
 
 class PharmacyWall extends React.Component {
@@ -76,7 +76,7 @@ class PharmacyWall extends React.Component {
         return (
             <div id='PharmacyWall'>
             {divs}
-            <GuideGrid configData={this.props.configData} />
+            {/* <GuideGrid configData={this.props.configData} /> */}
             </div>
         );
   }
