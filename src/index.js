@@ -52,7 +52,7 @@ let fauxPhidgetConfig = {
 	running : false,
 	slideIncrement : 20,
 	direction : 1,
-	moveTime : 1 // milliseconds
+	moveTime : 100 // milliseconds
 }
 config.fauxPhidgetConfig = fauxPhidgetConfig;
 

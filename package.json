@@ -2,11 +2,14 @@
   "name": "sliding-display-app",
   "version": "1.0.0",
   "private": true,
+  "author": "Dale MacDonald",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "cross-env": "^7.0.3",
     "csstools": "^0.1.5",
+    "electron-is-dev": "^2.0.0",
     "phidget22": "^2.7.3",
     "postcss": "^7.0.35",
     "react": "^17.0.1",
@@ -14,18 +17,36 @@
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
-  "homepage": "./build/",
-  "main": "src/electron-starter.js",
+  "homepage": "./",
+  "main": "public/electron-starter.js",
   "scripts": {
-    "start": "nf start -p 3000",
-    "build": "react-scripts build",
+    "nfstart": "nf start -p 3000",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "startbiun": "./node_modules/react-scripts/bin/react-scripts.js start",
     "electron": "electron .",
     "electron-start": "node src/electron-wait-react",
     "react-start": "BROWSER=none react-scripts start",
-    "react-build-start": "serve -s build -l 3000" 
+    "react-build-start": "serve -s build -l 3000",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-pack": "build --em.main=build/electron.js",
+    "preelectron-pack": "yarn build",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test --env=jsdom",
+    "react-eject": "react-scripts eject",
+    "electron-build": "electron-builder",
+    "release": "yarn react-build && electron-builder --publish=always",
+    "build": "yarn react-build && yarn electron-build",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
+  },
+  "build": {
+    "appId": "com.botherconsulting.pharmacy-history-wall",
+    "files": [
+      "build/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +67,10 @@
     ]
   },
   "devDependencies": {
-    "electron": "^13.1.8",
-    "foreman": "^3.0.1"
+    "concurrently": "^6.2.1",
+    "electron": "^14.0.0",
+    "electron-builder": "^22.11.7",
+    "foreman": "^3.0.1",
+    "wait-on": "^6.0.0"
   }
 }
