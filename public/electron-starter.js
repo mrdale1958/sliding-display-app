@@ -58,7 +58,7 @@ function createWindow() {
     // }));
 
     // Dev
-    mainWindow.loadURL('http://localhost:3000');
+    mainWindow.loadURL('http://localhost:5000');
     mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
