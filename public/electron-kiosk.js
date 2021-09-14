@@ -8,47 +8,11 @@ let mainWindow;
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 3840, height: 2160});
+    mainWindow = new BrowserWindow({skipTaskbar: true, movable: false, autoHideMenuBar: true, frameless: true,fullscreen: true, kiosk: true, width: 3840, height: 2160});
     //mainWindow = new BrowserWindow({skipTaskbar: true, movable: false, autoHideMenuBar: true, frameless: true,fullscreen: true, kiosk: true, width: 800, height: 600})
 
-    const webWindow = mainWindow.webContents;
 
-    const menu = new electron.Menu();
-    menu.append(new electron.MenuItem(
-        {
-            label: 'Toggle Fullscreen',
-            click() {
-                mainWindow.setFullScreen(!mainWindow.isFullScreen());
-            },
-        }));
-
-    menu.append(new electron.MenuItem(
-        {
-            label: 'Show Results',
-            click() {
-                webWindow.send('show-results');
-            },
-        }));
-
-    menu.append(new electron.MenuItem(
-        {
-            label: 'Reset Totals',
-            click() {
-                webWindow.send('reset-totals');
-            },
-        }));
-
-    menu.append(new electron.MenuItem(
-        {
-            label: 'Load Sample Results',
-            click() {
-                webWindow.send('load-sample');
-            },
-        }));
-
-    webWindow.on('context-menu', () => {
-        menu.popup(mainWindow);
-    });
+    
 
     // Prod
     // mainWindow.loadURL(url.format({
@@ -59,7 +23,7 @@ function createWindow() {
 
     // Dev
     mainWindow.loadURL('http://localhost:5000');
-    mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools({ mode: 'detach' })
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {

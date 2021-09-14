@@ -44,7 +44,7 @@ class SlidingDisplay extends React.Component {
         <PharmacyWall sliderPosition = {this.state.sliderPosition} db={this.props.db} configData={this.props.configData} />
 {/*         <MouseSlider id='mouseSlider' positionCallback = {this.handleMouseCallback} /> */ }
         <PhidgetSlider id='phidgetSlider' positionCallback = {this.handlePhidgetCallback} configData={this.props.configData} />
-        <FauxPhidgetSlider id='fauxphidgetSlider' sliderPosition = {this.state.sliderPosition} positionCallback = {this.handlePhidgetCallback} configData={this.props.configData} /> */} 
+        <FauxPhidgetSlider id='fauxphidgetSlider' sliderPosition = {this.state.sliderPosition} positionCallback = {this.handlePhidgetCallback} configData={this.props.configData} /> 
       </div>
     );
   }

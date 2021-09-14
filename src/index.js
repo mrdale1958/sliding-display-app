@@ -38,7 +38,8 @@ let config = {
 	leftSideIntercept: 0.5,
 	rightSideSlope: 1/1000,
 	rightSideIntercept: 2.5,
-	
+	moveTime : 100 // milliseconds
+
 };
 config.lastYear = config.startYear;
 config.availableClicks = config.clickDensity * config.travelDistance; // 39863
