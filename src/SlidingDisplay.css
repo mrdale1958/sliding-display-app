@@ -234,7 +234,7 @@ body {
 	background-color:#fff;
 	color: 0;
 	position:static;
-	border-width:10px;
+	border-width: 3px;
 	border-style: solid;;
 	padding: 5px;
 	animation: expandBox var(--event_transition_time);
@@ -407,7 +407,7 @@ body {
 	color: var(--lane_text);
 	opacity: 1;
 	position: absolute;
-	padding: 52px 0 0px 3px;	
+	padding: 52px 3px 0px 3px;	
 	z-index: 30;
 	font-size: 24pt;
 	font-family: myriad-pro-condensed;
@@ -489,7 +489,7 @@ body {
 }
 .world_event_top {
 	top: calc(7px + var(--lane-height) * 6.0);
-	height:calc(var(--lane-height) - 30px);
+	height:calc(var(--lane-height) - 0px);
 
 	
 }
