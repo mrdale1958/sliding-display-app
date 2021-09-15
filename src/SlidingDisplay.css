@@ -16,8 +16,8 @@
 	--education_dark:#403D3E;
 	--health_science_history_dark:#8F3A14;
 	--world_event_dark:#493B43;
-	--lane-height: 312px;
-	--content-width: 650px;
+	--lane-height: 153px;
+	--content-width: 320px;
 	--event_transition_time: 0.1s;
 }
 html {
@@ -80,7 +80,7 @@ body {
 }
 .printed-graphic {
 	height: 100%;
-	top: -11.4%;
+	top: -124px;
 	position: absolute;
 	z-index: 0;
 	opacity: 0.6;
@@ -88,7 +88,7 @@ body {
 }
 #printed-svg-object {
 	/* height:2580px; */
-	width: 33859px;
+	width: 16728px;
 }
 
 .guideline {
@@ -240,7 +240,7 @@ body {
 	animation: expandBox var(--event_transition_time);
 	transition: height var(--event_transition_time) linear;
 	transition: width var(--event_transition_time) linear;
-	font-size: 24pt;
+	font-size: 12pt;
 }
 .h {
 	transform: translateY(-100%);
@@ -256,7 +256,7 @@ body {
 
 .w {
 	transform: translateY(-50%);
-	width: 1000px;
+	width: 500px;
 }
 
 .event-dot {
@@ -280,10 +280,10 @@ body {
 	color:white;
 	transition: height var(--event_transition_time) linear;
 	transition: width var(--event_transition_time) linear;
-	font-size: 24pt;
+	font-size: 12pt;
 	padding-top: 8px;
-	height: 60px;
-	width: 100px;
+	height: 30px;
+	width: 50px;
 	transform: translateY(-50%);
 	
 }
@@ -296,7 +296,7 @@ body {
 	color:white;
 	padding: 20px;
 	min-height: 200px;
-	font-size: 24pt;
+	font-size: 12pt;
 	transition: height var(--event_transition_time) linear;
 	transition: width var(--event_transition_time) linear;
 	width: 150px;
@@ -407,9 +407,9 @@ body {
 	color: var(--lane_text);
 	opacity: 1;
 	position: absolute;
-	padding: 2% 0 0px 3px;	
+	padding: 52px 0 0px 3px;	
 	z-index: 30;
-	font-size: 48pt;
+	font-size: 24pt;
 	font-family: myriad-pro-condensed;
 	font-style: normal;
 	font-weight: bold;
@@ -457,7 +457,7 @@ body {
 }
 
 .disease_catastrophe_top {
-	top: calc(4px + var(--lane-height) * 0);
+	top: calc(0px + var(--lane-height) * 0);
 	height: calc(0px + var(--lane-height));
 	
 }
@@ -495,36 +495,36 @@ body {
 }
 
 .category-block.disease_catastrophe_top {
-	transform: translateY(156px);
+	transform: translateY(calc(var(--lane-height) / 2));
 	
 }
 .category-block.discovery_invention_top {
-	transform: translateY(156px);
+	transform: translateY(calc(var(--lane-height) / 2));
 
 }
 .category-block.drug_company_history_top {
-	transform: translateY(156px);
+	transform: translateY(calc(var(--lane-height) / 2));
 
 
 }
 
 .category-block.legislation_top {
-	transform: translateY(156px);
+	transform: translateY(calc(var(--lane-height) / 2));
 
 
 }
 .category-block.education_top {
-	transform: translateY(156px);
+	transform: translateY(calc(var(--lane-height) / 2));
 
 
 }
 .category-block.health_science_history_top {
-	transform: translateY(156px);
+	transform: translateY(calc(var(--lane-height) / 2));
 
 
 }
 .category-block.world_event_top {
-	transform: translateY(156px);
+	transform: translateY(calc(var(--lane-height) / 2));
 
 }
 .century_marks_top {

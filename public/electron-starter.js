@@ -8,7 +8,8 @@ let mainWindow;
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 3840, height: 2160});
+    //mainWindow = new BrowserWindow({width: 3840, height: 2160});
+    mainWindow = new BrowserWindow({width: 1920, height: 1080});
     //mainWindow = new BrowserWindow({skipTaskbar: true, movable: false, autoHideMenuBar: true, frameless: true,fullscreen: true, kiosk: true, width: 800, height: 600})
 
     const webWindow = mainWindow.webContents;
