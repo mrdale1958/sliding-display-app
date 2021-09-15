@@ -42,6 +42,7 @@ class PhidgetSlider extends React.Component {
     buildPhidgetConnection() {
         var encoder0 = this.state.encoder;
         const maxClicks = this.props.configData.availableClicks;
+        const theComponent = this;
         encoder0.onPositionChange = function onEncoder0_PositionChange(positionChange, timeChange, indexTriggered) {
             let newX = encoder0.getPosition();
             ////console.log('PositionChange: ', positionChange.toString(),newX);
@@ -56,7 +57,7 @@ class PhidgetSlider extends React.Component {
             }
             //console.log('++++++++++',newX);
             //console.log('----------',newX);
-            this.processPositionChange(newX);
+            theComponent.processPositionChange(newX);
         };
     
         encoder0.onDetach = function(ch) {
