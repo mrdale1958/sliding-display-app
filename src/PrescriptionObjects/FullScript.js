@@ -13,13 +13,12 @@ class FullScript extends React.Component {
     render() {
       let eventBody;
       if (this.props.eventData['SIGNIFICANCE'] !== "") {
-        eventBody = <div className='event-body'>
-          {this.props.eventData['SIGNIFICANCE']}
-        </div>
+        eventBody = <div className='event-body' 
+            dangerouslySetInnerHTML={{ __html: this.props.eventData['SIGNIFICANCE']}} />
       }
       return (
           <div className={this.props.className + " " + this.categoryToClassname(this.props.eventData['CATEGORY'])}>
-            <div>
+            <div className="event-block-header">
               <span className='event-year'>{this.props.eventData['YEAR']}</span>
               <span className='event-location'>{this.props.eventData['COUNTRY']}</span>
             </div>

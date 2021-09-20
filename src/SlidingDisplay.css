@@ -230,16 +230,16 @@ body {
 
 .event-block {
 	width: var(--content-width);
-	min-height: 100px;
-	background-color:#fff;
+/* 	min-height: 100px;
+ */	background-color:#fff;
 	color: 0;
 	position:static;
 	border-width: 3px;
 	border-style: solid;;
 	padding: 5px;
 	animation: expandBox var(--event_transition_time);
-	transition: height var(--event_transition_time) linear;
-	transition: width var(--event_transition_time) linear;
+/* 	transition: height var(--event_transition_time) linear;
+ */	transition: all var(--event_transition_time) linear;
 	font-size: 12pt;
 }
 .h {
@@ -259,6 +259,9 @@ body {
 	width: 500px;
 }
 
+.event-block-header {
+	height: 20px;
+}
 .event-dot {
 	border-width: 10px;
 	border-radius: 20px;
@@ -266,9 +269,9 @@ body {
 	width: 10px;
 	height: 10px;
 	margin: 0;
-	transition: height var(--event_transition_time) linear;
-	transition: width var(--event_transition_time) linear;
-	transform: translateY(-50%);
+	transition: all var(--event_transition_time) linear;
+/* 	transition: width var(--event_transition_time) linear;
+ */	transform: translateY(-50%);
 
 }
 .event-date {
@@ -278,9 +281,9 @@ body {
 	margin: 0;
 	background-color: black;
 	color:white;
-	transition: height var(--event_transition_time) linear;
-	transition: width var(--event_transition_time) linear;
-	font-size: 12pt;
+	transition: all var(--event_transition_time) linear;
+/* 	transition: width var(--event_transition_time) linear;
+ */	font-size: 12pt;
 	padding-top: 8px;
 	height: 30px;
 	width: 50px;
@@ -297,9 +300,9 @@ body {
 	padding: 20px;
 	min-height: 200px;
 	font-size: 12pt;
-	transition: height var(--event_transition_time) linear;
-	transition: width var(--event_transition_time) linear;
-	width: 150px;
+	transition: all var(--event_transition_time) linear;
+/* 	transition: width var(--event_transition_time) linear;
+ */	width: 150px;
 }
 .event-year {
 	font-weight: normal;
@@ -374,8 +377,8 @@ body {
 
 .event-block .event-heading {
 	display: block;
-	padding-top: 15px;
-}
+/* 	padding-top: 15px;
+ */}
 
 .event-block * .event-year {
 	display: block;
