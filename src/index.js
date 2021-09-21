@@ -19,7 +19,7 @@ let config = {
 	endYear : 2021,
 	ticksPerYear : 154,
 	printedGraphicOffset : 0,
-	printedGraphicScaleX : 16728 / 40137 ,
+	printedGraphicScaleX : 14788 / 40137 ,
 	//screenWidth : 3840,
 	screenWidth : 1920,
 

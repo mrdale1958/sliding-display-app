@@ -488,12 +488,12 @@ body {
 
 .legislation_top {
 	top: calc(1px + var(--lane-height) * 3.0);
-	height:calc(var(--lane-height) + 10px);
+	height:calc(var(--lane-height) + 3px);
 
 }
 .education_top {
-	top: calc(11px + var(--lane-height) * 4.0);
-	height:calc(var(--lane-height) + -6px);
+	top: calc(4px + var(--lane-height) * 4.0);
+	height:calc(var(--lane-height) + 1px);
 
 }
 .health_science_history_top {
