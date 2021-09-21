@@ -18,7 +18,7 @@
 	--world_event_dark:#493B43;
 	--lane-height: 153px;
 	--content-width: 320px;
-	--event_transition_time: 0.1s;
+	--event_transition_time: 0.05s;
 }
 html {
 	width: 100%;
@@ -228,35 +228,43 @@ body {
 	}
   }
 
+.Prescription {
+	height: 100%;
+	width: var(--content-width);
+}
+
 .event-block {
 	width: var(--content-width);
 /* 	min-height: 100px;
  */	background-color:#fff;
 	color: 0;
-	position:static;
+	position:absolute;
 	border-width: 3px;
 	border-style: solid;;
 	padding: 5px;
-	animation: expandBox var(--event_transition_time);
-/* 	transition: height var(--event_transition_time) linear;
- 	transition: all var(--event_transition_time) linear;
-*/	font-size: 12pt;
+	border-radius: 2px;
+	top: 50%;
+	transform: translateY(-50%);
+/* 	animation: expandBox var(--event_transition_time);
+ *//* 	transition: height var(--event_transition_time) linear;
+*/ 	transition: all var(--event_transition_time) linear width 0s linear;
+	font-size: 12pt;
 }
 .h {
-	transform: translateY(-50%);
+	transform: translateY(-100%);
 }
-
+/*
 .m {
-	transform: translateY(0%);
-}
-
+ 	transform: translateY(0%);
+ }
+*/
 .l {
-	transform: translateY(50%);
+	transform: translateY(0%);
 }
 
 .w {
-	transform: translateY(0%);
-	width: 529px;
+/* 	transform: translateY(0%);
+ */	width: 529px;
 	font-size: smaller;
 }
 
@@ -270,6 +278,8 @@ body {
 	width: 10px;
 	height: 10px;
 	margin: 0;
+	background-color: black;
+	color:white;
 	transition: all var(--event_transition_time) linear;
 /* 	transition: width var(--event_transition_time) linear;
  */		transform: translateY(200%);

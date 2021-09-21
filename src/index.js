@@ -19,7 +19,7 @@ let config = {
 	endYear : 2021,
 	ticksPerYear : 154,
 	printedGraphicOffset : 0,
-	printedGraphicScaleX : 29517 / 40137 ,
+	printedGraphicScaleX : 16728 / 40137 ,
 	//screenWidth : 3840,
 	screenWidth : 1920,
 
@@ -50,8 +50,10 @@ config.lastYear = config.startYear;
 config.availableClicks = config.clickDensity * config.travelDistance; // 39863
 config.maxClicks = (config.endYear - config.startYear) * config.ticksPerYear;
 config.rightEdge = window.innerWidth - config.yearLaneWidth - 100;  // why was this soooo off?
-config.leftEdge = 0 + config.labelWidth;
-config.rightEdge = config.screenWidth - config.labelWidth; 
+//config.leftEdge = 0 + config.labelWidth;
+//config.rightEdge = config.screenWidth - config.labelWidth; 
+config.leftEdge = 0;
+config.rightEdge = config.screenWidth; 
 config.leftSideSlope = 2/config.screenWidth;
 config.rightSideSlope = -2/config.screenWidth;
 let fauxPhidgetConfig = {

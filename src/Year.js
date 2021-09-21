@@ -82,12 +82,15 @@ class Year extends React.Component {
         if ( mode !== "none" ) {
             divs = this.buildDivs(this.props.yearsEvents, this.props.sliderPosition, mode)
         }
+        let z_index = 0;
+        if ( mode === "full" ) z_index = 1;
 
         let distortedScreenPosition = this.distortScreenPosition(currentScreenPosition);
         return (
           <div className = 'year' 
                 id = {this.props.id} 
-                style={{left: distortedScreenPosition}}>
+                style={{left: distortedScreenPosition,
+                    zIndex: z_index}}>
           {divs}
           </div>
         );
