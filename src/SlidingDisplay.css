@@ -148,9 +148,9 @@ body {
 .category-block {
 	position: absolute;
 /* 	border-style: solid;
- */	padding: 2px;;
-/* 	border-color:rgb(7, 252, 101);*/
- 	transform: translateX(-50%);
+ 	padding: 2px;;
+ 	border-color:rgb(7, 252, 101);
+ 	transform: translateX(-50%);*/
 }
 .century {
 	top: 0;
@@ -239,24 +239,25 @@ body {
 	padding: 5px;
 	animation: expandBox var(--event_transition_time);
 /* 	transition: height var(--event_transition_time) linear;
- */	transition: all var(--event_transition_time) linear;
-	font-size: 12pt;
+ 	transition: all var(--event_transition_time) linear;
+*/	font-size: 12pt;
 }
 .h {
-	transform: translateY(-100%);
+	transform: translateY(-50%);
 }
 
 .m {
-	transform: translateY(-50%);
-}
-
-.l {
 	transform: translateY(0%);
 }
 
+.l {
+	transform: translateY(50%);
+}
+
 .w {
-	transform: translateY(-50%);
-	width: 500px;
+	transform: translateY(0%);
+	width: 529px;
+	font-size: smaller;
 }
 
 .event-block-header {
@@ -271,7 +272,7 @@ body {
 	margin: 0;
 	transition: all var(--event_transition_time) linear;
 /* 	transition: width var(--event_transition_time) linear;
- */	transform: translateY(-50%);
+ */		transform: translateY(200%);
 
 }
 .event-date {
@@ -287,7 +288,7 @@ body {
 	padding-top: 8px;
 	height: 30px;
 	width: 50px;
-	transform: translateY(-50%);
+	transform: translateY(91%);
 	
 }
 .event-label {
@@ -498,36 +499,36 @@ body {
 }
 
 .category-block.disease_catastrophe_top {
-	transform: translateY(calc(var(--lane-height) / 2));
+	transform: translateY(calc(1px - 50% + var(--lane-height) / 2));
 	
 }
 .category-block.discovery_invention_top {
-	transform: translateY(calc(var(--lane-height) / 2));
+	transform: translateY(calc(3px - 50% + var(--lane-height) / 2));
 
 }
 .category-block.drug_company_history_top {
-	transform: translateY(calc(var(--lane-height) / 2));
+	transform: translateY(calc(1px - 50% + var(--lane-height) / 2));
 
 
 }
 
 .category-block.legislation_top {
-	transform: translateY(calc(var(--lane-height) / 2));
+	transform: translateY(calc(1px - 50% + var(--lane-height) / 2));
 
 
 }
 .category-block.education_top {
-	transform: translateY(calc(var(--lane-height) / 2));
+	transform: translateY(calc(1px - 50% + var(--lane-height) / 2));
 
 
 }
 .category-block.health_science_history_top {
-	transform: translateY(calc(var(--lane-height) / 2));
+	transform: translateY(calc(1px - 50% + var(--lane-height) / 2));
 
 
 }
 .category-block.world_event_top {
-	transform: translateY(calc(var(--lane-height) / 2));
+	transform: translateY(calc(1px - 50% + var(--lane-height) / 2));
 
 }
 .century_marks_top {

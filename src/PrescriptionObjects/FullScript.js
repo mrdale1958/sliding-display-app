@@ -22,11 +22,10 @@ class FullScript extends React.Component {
               <span className='event-year'>{this.props.eventData['YEAR']}</span>
               <span className='event-location'>{this.props.eventData['COUNTRY']}</span>
             </div>
-            <div className='event-heading' dangerouslySetInnerHTML={{ __html: this.props.eventData['EVENT']}}>
-
+            <div className='event-heading' 
+              dangerouslySetInnerHTML={{ __html: this.props.eventData['EVENT']}}>
             </div>
             {eventBody}
-           
           </div>
       );
   }
