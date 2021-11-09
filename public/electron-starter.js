@@ -9,7 +9,8 @@ let mainWindow;
 function createWindow() {
     // Create the browser window.
     //mainWindow = new BrowserWindow({width: 3840, height: 2160});
-    mainWindow = new BrowserWindow({width: 1920, height: 1080});
+    //mainWindow = new BrowserWindow({width: 1920, height: 1080});
+    mainWindow = new BrowserWindow({skipTaskbar: true, movable: false, autoHideMenuBar: true, frameless: true,fullscreen: true, width: 1920, height: 1080})
     //mainWindow = new BrowserWindow({skipTaskbar: true, movable: false, autoHideMenuBar: true, frameless: true,fullscreen: true, kiosk: true, width: 800, height: 600})
 
     const webWindow = mainWindow.webContents;
@@ -60,7 +61,7 @@ function createWindow() {
 
     // Dev
     mainWindow.loadURL('http://localhost:5000');
-    mainWindow.webContents.openDevTools()
+    //mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
