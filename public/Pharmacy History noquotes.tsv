@@ -66,7 +66,7 @@ YEAR	EXTENDED_YEAR	EVENT	COUNTRY	SIGNIFICANCE	CATEGORY	PosInInches	TickPosInInch
 1860	18602	Florence Nightingale establishes first training school for nurses at St. Thomas's Hospital	England	First professional nursing school in the world. Nightingale comes to be known the "Lady with the Lamp," as she regularly patrols the hospital sick wards at night.	Health Science History	68.771875	56.371875	m	hmmm
 1863	18630	Burroughs Wellcome & Co. established	US		Drug Company History	69.7375	58.4375	m	hmmm
 1863	18631	Mary Putnam becomes first woman to graduate from a US college of pharmacy	US	A graduate of New York City college of pharmacy, Putnam uses her pharmacy education as a stepping stone to medical school.	Health Science History	69.7375	57.3375	m	hmmm
-1863	18632	American Veterinary Association founded	US		Health Science History	70.703125	58.303125	m	hmmm
+1863	18632	American Veterinary Association founded	US		Health Science History	70.703125	58.4375	m	hmmm
 1865	18650	Joseph Lister introduces antiseptic treatment of wounds	Britain	Pioneer in preventative medicine and antisepsis.	Discovery/Invention	71.66875	59.16875	m	hmmm
 1865	18651	International Pharmaceutical Congress held	Germany	First international meeting of pharmacists. Germany, Austria, France, and Sweden are represented. (The US is not involved until the second Congress, in 1867.)	Health Science History	71.66875	59.36875	m	hmmm
 1866	18660	Thomas Clifford Allbutt introduces clinical thermometer	UK	This short mercury thermometer proves a desirable alternative to the previous, foot-long device that took 20 minutes to register a patient's temperature.	Discovery/Invention	72.634375	60.834375	m	hmmm
@@ -81,18 +81,18 @@ YEAR	EXTENDED_YEAR	EVENT	COUNTRY	SIGNIFICANCE	CATEGORY	PosInInches	TickPosInInch
 1876	18762	American Chemical Society founded	US		Health Science History	79.39375	66.89375	h	hmmm
 1880	18800	Louis Pasteur discovers streptococcus, staphylococcus, and pneumococcus	France	Pasteur's research lays the groundwork for germ theory and modern microbiology.	Discovery/Invention	80.359375	67.859375	m	hmmm
 1880	18801	American Surgical Association founded	US		Health Science History	80.359375	68.659375	m	hmmm
-1881	18810	Louis Grimaux obtains codeine from morphine	France	Early relief for pain and cough.	Discovery/Invention	81.325	68.825	m	hmmm
+1881	18810	Louis Grimaux obtains codeine from morphine	France	Early relief for pain and cough.	Discovery/Invention	81.325	68.96	m	hmmm
 1881	18811	American Red Cross founded	US	Clara Barton establishes the American Red Cross and serves as its president until 1904, when she resigns at age 83.	Health Science History	81.325	69.625	m	hmmm
-1882	18820	Robert Koch discovers tubercle bacillus	Germany	Named <i>Mycobacterium tuberculosis</i> in 1886.	Discovery/Invention	82.290625	69.890625	m	hmmm
-1883	18830	Edwin Klebs discovers diphtheria bacillus	Switzerland	Klebs also gains recognition for his pioneering work which demonstrates that microorganisms are responsible for infectious diseases.	Discovery/Invention	83.25625	70.85625	m	hmmm
-1883	18831	Albert King determines that malaria is transmitted by mosquitoes	US	In order to eradicate malaria from Washington, D.C., King proposes enclosing the entire city in a giant mosquito net.	Discovery/Invention	84.221875	71.821875	m	hmmm
-1884	18840	Carl Koller uses cocaine in eye surgery	Austria	The birth of localized anesthesia. Koller, a young ophthalmologist, uses cocaine as a surface anesthetic in eye surgery.	Discovery/Invention	85.1875	72.8875	m	hmmm
-1885	18850	H. H. Rusby makes lengthy trip to South America to study botanical drugs	South America	Rusby's research proves immensely important to the fields of botany and pharmacognosy. He later becomes the co-founder of the New York Botanical Garden.	Discovery/Invention	86.153125	73.853125	m	hmmm
+1882	18820	Robert Koch discovers tubercle bacillus	Germany	Named <i>Mycobacterium tuberculosis</i> in 1886.	Discovery/Invention	82.290625	70.06	m	hmmm
+1883	18830	Edwin Klebs discovers diphtheria bacillus	Switzerland	Klebs also gains recognition for his pioneering work which demonstrates that microorganisms are responsible for infectious diseases.	Discovery/Invention	83.25625	71.16	m	hmmm
+1883	18831	Albert King determines that malaria is transmitted by mosquitoes	US	In order to eradicate malaria from Washington, D.C., King proposes enclosing the entire city in a giant mosquito net.	Discovery/Invention	84.221875	72.26	m	hmmm
+1884	18840	Carl Koller uses cocaine in eye surgery	Austria	The birth of localized anesthesia. Koller, a young ophthalmologist, uses cocaine as a surface anesthetic in eye surgery.	Discovery/Invention	85.1875	73.36	m	hmmm
+1885	18850	H. H. Rusby makes lengthy trip to South America to study botanical drugs	South America	Rusby's research proves immensely important to the fields of botany and pharmacognosy. He later becomes the co-founder of the New York Botanical Garden.	Discovery/Invention	86.153125	74.46	m	hmmm
 1885	18851	Johnson & Johnson established	US		Drug Company History	87.11875	74.41875	m	hmmm
 1885	18852	University of Arizona founded	US	Bear down!	Education	86.153125	74.253125	m	hmmm
-1885	18853	Coca-Cola created	US	Pharmacist John Pemberton creates the drink and sells it as a treatment for upset stomach, headaches, and fatigue. The original formula contains cocaine, which is legal at the time.	Discovery/Invention	86.153125	75.053125	m	hmmm
+1885	18853	Coca-Cola created	US	Pharmacist John Pemberton creates the drink and sells it as a treatment for upset stomach, headaches, and fatigue. The original formula contains cocaine, which is legal at the time.	Discovery/Invention	86.153125	75.56	m	hmmm
 1885	18854	Joseph Remington's <i>Practice of Pharmacy</i> published	US	Widely considered the definitive text for the science and practice of pharmacy.	Education	87.11875	75.41875	m	hmmm
-1886	18860	Henri Moissan discovers fluorine	France		Discovery/Invention	88.084375	75.984375	m	hmmm
+1886	18860	Henri Moissan discovers fluorine	France		Discovery/Invention	88.084375	76.66	m	hmmm
 1886	18861	Stanislas Limousin invents glass ampuls	France	Limousin uses traditional glass-blowing techniques to create the earliest ampuls. He also gains renown for his invention of the medicine dropper.	Discovery/Invention	88.084375	76.984375	m	hmmm
 1886	18862	The Upjohn Company established	US		Drug Company History	89.05	76.35	m	hmmm
 1888	18880	Pharmacist Jacob Baur establishes the Liquid Carbonic Company	US	Called the father of the soda fountain, Baur manufactures carbon dioxide tanks from which fizzy sodas can be made. By the beginning of the 20th century, soda fountains become a common drugstore fixture.	Discovery/Invention	90.015625	78.215625	m	hmmm
