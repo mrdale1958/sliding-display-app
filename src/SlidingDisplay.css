@@ -242,7 +242,7 @@ body {
 	border-width: 3px;
 	border-style: solid;;
 	padding: 5px;
-	border-radius: 2px;
+	border-radius: 20px;
 	top: 50%;
 	transform: translateY(-50%);
 /* 	animation: expandBox var(--event_transition_time);
@@ -295,7 +295,7 @@ body {
 	transition: all var(--event_transition_time) linear;
 /* 	transition: width var(--event_transition_time) linear;
  */	font-size: 12pt;
-	padding-top: 8px;
+	padding: 0px 10px 0px 10px;
 	height: 30px;
 	width: 50px;
 	transform: translateY(91%);
@@ -303,7 +303,7 @@ body {
 }
 .event-label {
 	border-width: 10px;
-	border-radius: 2px;
+	border-radius: 20px;
 	background-color: black;
 	margin: 0;
 	border-style: solid;

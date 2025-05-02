@@ -12,7 +12,7 @@ function createWindow() {
     //mainWindow = new BrowserWindow({width: 1920, height: 1080});
     mainWindow = new BrowserWindow({skipTaskbar: true, movable: false, autoHideMenuBar: true, frameless: true,fullscreen: true, width: 1920, height: 1080})
     //mainWindow = new BrowserWindow({skipTaskbar: true, movable: false, autoHideMenuBar: true, frameless: true,fullscreen: true, kiosk: true, width: 800, height: 600})
-
+//mainWindow.webContents.openDevTools({mode: 'attach'})
     const webWindow = mainWindow.webContents;
 
     const menu = new electron.Menu();

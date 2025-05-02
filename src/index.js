@@ -30,7 +30,7 @@ let config = {
 	//yearTrigger : 800,
 	//labelTrigger : 1100,
 	//contentTrigger : 1400,
-	yearTrigger : 400,
+	yearTrigger : 450,
 	labelTrigger : 550,
 	contentTrigger : 700,
 	yearLaneWidth : window.innerWidth/20,

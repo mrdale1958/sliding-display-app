@@ -47,7 +47,7 @@ class Year extends React.Component {
     render() {
         let mode = "none";
         let divs = <div>&nbsp;</div>
-        let currentScreenPosition = this.props.position - this.props.sliderPosition + this.props.configData.screenWidth/2;
+        let currentScreenPosition = this.props.position - this.props.sliderPosition; // + this.props.configData.screenWidth/2;
         if ( currentScreenPosition >= this.props.configData.leftEdge) {
             if (currentScreenPosition > this.props.configData.yearTrigger) {
                 //if (currentScreenPosition > this.props.configData.labelTrigger) {
