@@ -47,7 +47,14 @@ function createWindow() {
                 webWindow.send('load-sample');
             },
         }));
+    menu.append(new electron.MenuItem(
 
+      {
+        label: 'Toggle Developer Tools',
+        click () {
+          webWindow.openDevTools();
+        },
+      }));
     webWindow.on('context-menu', () => {
         menu.popup(mainWindow);
     });

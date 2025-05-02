@@ -32,10 +32,15 @@ class Year extends React.Component {
         
         let midpoint = this.props.configData.screenWidth/2;
         if (linearScreenPosition <= midpoint) {
-            retval = this.integral(0,linearScreenPosition, this.props.configData.leftSideSlope, this.props.configData.leftSideIntercept);
+            retval = this.integral(0,linearScreenPosition, 
+                this.props.configData.leftSideSlope, 
+                this.props.configData.leftSideIntercept);
 
         } else {
-            retval = midpoint + this.integral(midpoint,linearScreenPosition, this.props.configData.rightSideSlope, this.props.configData.rightSideIntercept);
+            retval = midpoint + this.integral(midpoint,
+                linearScreenPosition, 
+                this.props.configData.rightSideSlope, 
+                this.props.configData.rightSideIntercept);
                             
         }
         return(retval);
@@ -47,7 +52,12 @@ class Year extends React.Component {
     render() {
         let mode = "none";
         let divs = <div>&nbsp;</div>
-        let currentScreenPosition = this.props.position - this.props.sliderPosition; // + this.props.configData.screenWidth/2;
+        let squeeze = ( this.props.configData.availableClicks - 
+            1.5 * this.props.configData.screenWidth) / 
+            this.props.configData.availableClicks
+        let currentScreenPosition = squeeze* (this.props.position 
+            - this.props.sliderPosition 
+            + this.props.configData.screenWidth/2);
         if ( currentScreenPosition >= this.props.configData.leftEdge) {
             if (currentScreenPosition > this.props.configData.yearTrigger) {
                 //if (currentScreenPosition > this.props.configData.labelTrigger) {

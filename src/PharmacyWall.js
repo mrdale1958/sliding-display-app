@@ -2,6 +2,7 @@ import React from 'react';
 // import CenturyMarker from './CenturyMarker.js';
 //import GuideGrid from './GuideGrid.js';
 import Year from './Year.js';
+import LanesLabel from './LanesLabels.js';
 
 class PharmacyWall extends React.Component {
     constructor() {
@@ -75,6 +76,7 @@ class PharmacyWall extends React.Component {
      
         return (
             <div id='PharmacyWall'>
+              <LanesLabel />
             {divs}
             {/* <GuideGrid configData={this.props.configData} /> */}
             </div>
